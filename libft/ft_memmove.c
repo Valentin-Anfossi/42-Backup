@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 11:57:17 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/04 13:21:30 by vanfossi         ###   ########.fr       */
+/*   Created: 2024/11/04 13:33:03 by vanfossi          #+#    #+#             */
+/*   Updated: 2024/11/04 13:34:15 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 typedef typeof(sizeof(0)) size_t; 
 
-void    ft_bzero(void *s, size_t n)
+void *ft_memmove(void *dest, const void *src, size_t n)
 {
-    int i;
-    unsigned char *c;
-
-    c = s;
-    i = 0;
-    while (i < n)
-    {
-        *c = '\0';
-        c++;
-        i++;
-    }
+    
 }
