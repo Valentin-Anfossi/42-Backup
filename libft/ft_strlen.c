@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 11:39:38 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/04 11:45:56 by vanfossi         ###   ########.fr       */
+/*   Created: 2024/11/04 11:46:23 by vanfossi          #+#    #+#             */
+/*   Updated: 2024/11/04 11:49:46 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isprint(int c)
+typedef typeof(sizeof(0)) size_t; 
+
+size_t ft_strlen(const char *s)
 {
-   		if ((c < 32 || c > 126))
-		{
-			return (0);
-		} 
-        else
-            return (1);
+    size_t i;
+    
+    i = 0;
+    while(s)
+        i ++;
+    return i;
 }
-
-

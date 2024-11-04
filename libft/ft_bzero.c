@@ -1,23 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 11:39:38 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/04 11:45:56 by vanfossi         ###   ########.fr       */
+/*   Created: 2024/11/04 11:57:17 by vanfossi          #+#    #+#             */
+/*   Updated: 2024/11/04 11:58:35 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isprint(int c)
-{
-   		if ((c < 32 || c > 126))
-		{
-			return (0);
-		} 
-        else
-            return (1);
-}
+typedef typeof(sizeof(0)) size_t; 
 
-
+void    ft_bzero(void *s, size_t n)
+{}

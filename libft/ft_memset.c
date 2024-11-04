@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 11:39:38 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/04 11:45:56 by vanfossi         ###   ########.fr       */
+/*   Created: 2024/11/04 11:50:41 by vanfossi          #+#    #+#             */
+/*   Updated: 2024/11/04 11:56:59 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isprint(int c)
+typedef typeof(sizeof(0)) size_t; 
+
+void ft_memset(void *s, int c, size_t n)
 {
-   		if ((c < 32 || c > 126))
-		{
-			return (0);
-		} 
-        else
-            return (1);
+	int i;
+	unsigned char *p;
+	
+	p = s;
+	i = 0;
+	while(i < n)
+	{
+		*p = c;
+		p++;
+		i++;
+	}
+	return s;
 }
-
-
