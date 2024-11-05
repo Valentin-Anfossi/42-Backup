@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 13:21:46 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/04 13:27:53 by vanfossi         ###   ########.fr       */
+/*   Created: 2024/11/05 13:43:59 by vanfossi          #+#    #+#             */
+/*   Updated: 2024/11/05 13:43:59 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef typeof(sizeof(0)) size_t; 
+#include <stdio.h>
 
-void *ft_memcpy(void *dest, const void *src, size_t n)
+int ft_toupper(int c)
 {
-	char *charsrc;
-	char *chardest;
-	int i;
+	if((c >= 'a')&&(c <= 'z'))
+		return (c - 32);
+	else
+		return (c);
+}
 
-	charsrc = (char *)src;
-	chardest = (char *)dest;
-	i = 0;
-	while(i < n)
-	{
-		chardest[i] = charsrc[i];
-		i++;
-	}
+int main (void)
+{
+	printf("test:%c",ft_toupper('c'));
 }

@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 13:21:46 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/04 13:27:53 by vanfossi         ###   ########.fr       */
+/*   Created: 2024/11/05 11:26:21 by vanfossi          #+#    #+#             */
+/*   Updated: 2024/11/05 11:26:21 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef typeof(sizeof(0)) size_t; 
+#include<stdio.h>
 
-void *ft_memcpy(void *dest, const void *src, size_t n)
+void main(void)
 {
-	char *charsrc;
-	char *chardest;
-	int i;
-
-	charsrc = (char *)src;
-	chardest = (char *)dest;
-	i = 0;
-	while(i < n)
-	{
-		chardest[i] = charsrc[i];
-		i++;
-	}
+	printf("hello world !");
+	return (0);
 }

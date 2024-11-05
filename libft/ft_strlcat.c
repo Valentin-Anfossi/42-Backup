@@ -1,29 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 13:21:46 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/04 13:27:53 by vanfossi         ###   ########.fr       */
+/*   Created: 2024/11/05 11:44:39 by vanfossi          #+#    #+#             */
+/*   Updated: 2024/11/05 11:44:39 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include <stdio.h>
 typedef typeof(sizeof(0)) size_t; 
 
-void *ft_memcpy(void *dest, const void *src, size_t n)
+size_t ft_strlcat(char *dst, const char *src, size_t size)
 {
-	char *charsrc;
-	char *chardest;
 	int i;
+	int j;
+	char *charsrc;
 
 	charsrc = (char *)src;
-	chardest = (char *)dest;
 	i = 0;
-	while(i < n)
-	{
-		chardest[i] = charsrc[i];
+	j = 0;
+	if(size == 0)
+		return (0);
+	while(dst[i] != '\0')
 		i++;
+	printf("%d\n",i);
+	while(i < size-1)
+	{
+		dst[i] = charsrc[j];
+		i++;
+		j++;
 	}
+	if(dst[i])
+		dst[i] = '\0';
+	return (i);
+}
+
+int main(void)
+{
+		char dst[5];
+		dst[0] = 'a';
+		dst[1] = 'b';
+		char *src = "0123456789";
+
+		printf("%d\n",ft_strlcat(dst,src,6));
+
+		printf("%s",dst);
 }

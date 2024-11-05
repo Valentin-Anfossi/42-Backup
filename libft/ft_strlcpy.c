@@ -1,29 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   strlcpy.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 13:21:46 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/04 13:27:53 by vanfossi         ###   ########.fr       */
+/*   Created: 2024/11/05 10:09:00 by vanfossi          #+#    #+#             */
+/*   Updated: 2024/11/05 10:09:00 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef typeof(sizeof(0)) size_t; 
+#include <stdio.h>
 
-void *ft_memcpy(void *dest, const void *src, size_t n)
+typedef typeof(sizeof(0)) size_t;
+
+size_t ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	char *charsrc;
-	char *chardest;
 	int i;
+	char *charsrc;
 
 	charsrc = (char *)src;
-	chardest = (char *)dest;
 	i = 0;
-	while(i < n)
+	if(size == 0)
+		return (0);
+	while(i < size-1)
 	{
-		chardest[i] = charsrc[i];
+		dst[i] = charsrc[i];
 		i++;
 	}
+	dst[i] = '\0';
+	i = 0;
+	while(src[i])
+	{
+		i++;
+	}
+	return (i);
+}
+
+int main(void)
+{
+		char dst[10];
+		char *src = "0123456789";
+
+		printf("%d\n",ft_strlcpy(dst,src,11));
+
+		printf("%s",dst);
 }
