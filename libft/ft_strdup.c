@@ -1,19 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 11:26:21 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/05 11:26:21 by vanfossi         ###   ########.fr       */
+/*   Created: 2024/11/05 19:28:58 by vanfossi          #+#    #+#             */
+/*   Updated: 2024/11/05 19:28:58 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include<stdlib.h>
 #include<stdio.h>
 
-void main(void)
+char *strdup(const char *s)
 {
-	printf("hello world !");
-	return (0); 
+	int slen;
+	int i;
+	char *dup;
+	
+	slen = 0;
+	i = 0;
+	while(s[slen])
+		slen++;
+	dup = malloc(sizeof(char)*slen+1);
+	while(i<slen+1)
+	{
+		dup[i] = s[i];
+		i++;
+	}
+	dup[i] = '\0';
+	return dup;
+}
+
+int main(void)
+{
+	char *src = "bonjour    sa";
+	char* test = strdup(src);
+
+	printf("%s",test);
+	free(test);
 }

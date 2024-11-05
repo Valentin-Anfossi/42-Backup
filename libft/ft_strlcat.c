@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
-typedef typeof(sizeof(0)) size_t; 
+#include "libft.h"
+//typedef typeof(sizeof(0)) size_t; 
 
 size_t ft_strlcat(char *dst, const char *src, size_t size)
 {
@@ -23,10 +24,10 @@ size_t ft_strlcat(char *dst, const char *src, size_t size)
 	j = 0;
 	if(size == 0)
 		return (0);
-	while(dst[i] != '\0')
+	while(dst[i] != 0)
 		i++;
 	printf("%d\n",i);
-	while(i < size-1)
+	while(i < (int)size)
 	{
 		dst[i] = charsrc[j];
 		i++;
@@ -39,12 +40,13 @@ size_t ft_strlcat(char *dst, const char *src, size_t size)
 
 int main(void)
 {
-		char dst[5];
+		char dst[6];
 		dst[0] = 'a';
 		dst[1] = 'b';
-		char *src = "0123456789";
+		dst[2] = '\0';
+		char *src = "012345";
 
-		printf("%d\n",ft_strlcat(dst,src,6));
+		printf("%d\n",(int)ft_strlcat(dst,src,6));
 
 		printf("%s",dst);
 }

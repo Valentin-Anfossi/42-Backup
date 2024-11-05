@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 11:26:21 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/05 11:26:21 by vanfossi         ###   ########.fr       */
+/*   Created: 2024/11/05 21:31:38 by vanfossi          #+#    #+#             */
+/*   Updated: 2024/11/05 21:31:38 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
+#include<stdlib.h>
 
-void main(void)
+char *ft_strtrim(char const *s1, char const *set)
 {
-	printf("hello world !");
-	return (0); 
+	int start;
+	int end;
+	int i;
+
+	while(s1[i])
+	{
+		
+	}
 }
