@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 13:53:58 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/05 13:53:58 by vanfossi         ###   ########.fr       */
+/*   Created: 2024/11/05 15:05:01 by vanfossi          #+#    #+#             */
+/*   Updated: 2024/11/05 15:05:01 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+typedef typeof(sizeof(0)) size_t; 
 
-int ft_tolower(int c)
+int ft_strncmp(const char *s1, const char *s2,  size_t n)
 {
-	if((c >= 'A')&&(c <= 'Z'))
-		return (c + 32);
-	else
-		return (c);
-}
-
-int main (void)
-{
-	printf("test:%c",ft_tolower('C'));
+	
 }
