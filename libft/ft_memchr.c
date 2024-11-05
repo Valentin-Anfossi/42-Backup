@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 15:05:01 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/05 15:05:01 by vanfossi         ###   ########.fr       */
+/*   Created: 2024/11/05 15:48:26 by vanfossi          #+#    #+#             */
+/*   Updated: 2024/11/05 15:48:26 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
+#include <stdio.h>
 
 typedef typeof(sizeof(0)) size_t; 
 
-int ft_strncmp(const char *s1, const char *s2,  size_t n)
+void *ft_memchr(const void *s, int c, size_t n)
 {
 	size_t i;
-
+	char *r;
+	char *chars;
+	
+	chars = (char *)s;
+	r = 0;
 	i = 0;
-	while((s1[i] || s2[i]) & (i < n))
+	while (chars[i] && i < n)
 	{
-		if(s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
+		if(chars[i] == c)
+			r = (void *)s+i;
+	i++;
 	}
-	return (0);
+	return (r);
 }
 
 int main(void)
 {
-	printf("%d",ft_strncmp("bba","bbba",2));
+	printf("%s", (char *)ft_memchr("bonjour",'j',4));
 }

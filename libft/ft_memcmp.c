@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 15:05:01 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/05 15:05:01 by vanfossi         ###   ########.fr       */
+/*   Created: 2024/11/05 16:32:46 by vanfossi          #+#    #+#             */
+/*   Updated: 2024/11/05 16:32:46 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,19 @@
 
 typedef typeof(sizeof(0)) size_t; 
 
-int ft_strncmp(const char *s1, const char *s2,  size_t n)
+int ft_memcmp(const void *s1, const void *s2,  size_t n)
 {
 	size_t i;
+	char *cs1;
+	char *cs2;
 
+	cs1 = (char *)s1;
+	cs2 = (char *)s2;
 	i = 0;
-	while((s1[i] || s2[i]) & (i < n))
+	while((cs1[i] || cs2[i]) & (i < n))
 	{
-		if(s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+		if(cs1[i] != cs2[i])
+			return (cs1[i] - cs2[i]);
 		i++;
 	}
 	return (0);
@@ -30,5 +34,5 @@ int ft_strncmp(const char *s1, const char *s2,  size_t n)
 
 int main(void)
 {
-	printf("%d",ft_strncmp("bba","bbba",2));
+	printf("%d",ft_memcmp("bba","bbba",3));
 }
