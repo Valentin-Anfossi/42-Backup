@@ -46,16 +46,64 @@ static char **ft_the_mallocator(char const *s,char c)
 	return (array);
 }
 
+// char **ft_split(char const *s, char c)
+// {
+// 	char **array;
+// 	int i;
+// 	int j;
+// 	int k;
+
+// 	i = 0;
+// 	k = 0;
+// 	j = 0;
+// 	array = ft_the_mallocator(s,c);
+// 	while(s[i])
+// 	{
+// 		if(s[i] == c)
+// 		{
+// 			j++;
+// 			i++;
+// 			k = 0;
+// 			continue;
+// 		}
+// 		else
+// 		{
+// 			array[j][k] = s[i];
+// 			k++;
+// 			i++;
+// 		}
+// 		array[j][k] = 0;
+// 	}
+// 	array[j+1] = 0;
+// 	return array;
+// }
+
+// char **ft_split(char const *s, char c)
+// {
+// 	char **array = ft_the_mallocator(s, c);
+// 	int i = 0, j = 0, k = 0;
+
+// 	while (s[i])
+// 	{
+// 		if (s[i] == c)
+// 		{
+// 			array[j][k] = 0;
+// 			j++;
+// 			k = 0;
+// 		}
+// 		else
+// 			array[j][k++] = s[i];
+// 		i++;
+// 	}
+// 	array[j + 1] = 0;
+// 	return array;
+// }
+
 char **ft_split(char const *s, char c)
 {
 	char **array = ft_the_mallocator(s, c);
-	int i;
-	int j;
-	int k;
+	int i = 0, j = 0, k = 0;
 
-	i = 0;
-	j = 0;
-	k = 0;
 	while (s[i])
 	{
 		if (s[i] == c)
@@ -77,11 +125,11 @@ char **ft_split(char const *s, char c)
 int main(void)
 {
 	
-	char **array = ft_split("sa/s/s",'/');
+	char **array = ft_split("sa/dd/kdsj/bou//aa/ds/aakdldaskjl",'/');
 	int i = 0;
 	while(array[i])
 	{
-		printf("%s ",array[i]);
+		printf("%s\n",array[i]);
 		i++;
 	}
 	free(array);
