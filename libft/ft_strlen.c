@@ -10,14 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef typeof(sizeof(0)) size_t; 
+#include "libft.h"
 
 size_t ft_strlen(const char *s)
 {
     size_t i;
     
     i = 0;
-    while(s[i])
+    while (s[i])
         i ++;
     return i;
 }

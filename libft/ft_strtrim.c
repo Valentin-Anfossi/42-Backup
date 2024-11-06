@@ -11,15 +11,52 @@
 /* ************************************************************************** */
 
 #include<stdlib.h>
+#include<stdio.h>
+#include"libft.h"
+#include"ft_strlen.c"
+
+static int ft_is_char_in_set(char c, char const *set)
+{
+	int i;
+	
+	i = 0;
+	while(set[i])
+	{
+		if (c == set[i])
+			return (1);
+		i++;
+	}
+	return (0);
+}
 
 char *ft_strtrim(char const *s1, char const *set)
 {
-	int start;
-	int end;
+	int st;
+	int en;
 	int i;
+	char *string;
 
-	while(s1[i])
+
+	st = 0;
+	i = 0;
+	while(s1[st] && ft_is_char_in_set(s1[st],set))
+		st ++;
+	en  = ft_strlen(s1)-1;
+	while(s1[en] && ft_is_char_in_set(s1[en],set))
+		en --;
+	string = malloc((en - st + 1) * sizeof(char));
+	if(!string)
+		return (0);
+	while(i < en-st+1)
 	{
-		
+		string[i] = s1[st + i];
+		i++;
 	}
+	string[i] = '\0';
+	return (string);
+}
+
+int main (void)
+{
+	printf("%s",ft_strtrim(" / sjdakdj    "," /"));
 }
