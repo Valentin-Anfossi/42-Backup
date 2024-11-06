@@ -12,9 +12,16 @@
 
 #include"libft.h"
 
-static char ft_itoa_mallocu(n)
+static int ft_itoa_size(n)
 {
 	
+}
+
+static char ft_itoa_mallocu(n)
+{
+	char *string;
+
+	string = malloc ()
 }
 
 char *ft_itoa(int n)

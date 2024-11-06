@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int	ft_sign(char *str)
+static int	ft_sign(char *str)
 {
 	int	sign;
 	int	i;
