@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef typeof(sizeof(0)) size_t; 
+#include"libft.h"
 
 void ft_memset(void *s, int c, size_t n)
 {

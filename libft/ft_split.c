@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include"libft.h"
-#include"ft_strlen.c"
-#include<stdio.h>
 
 static int ft_split_count(char const *s, char c)
 {
@@ -74,16 +72,16 @@ char **ft_split(char const *s, char c)
 	return array;
 }
 
-int main(void)
-{
+// int main(void)
+// {
 	
-	char **array = ft_split("sa/s/s",'/');
-	int i = 0;
-	while(array[i])
-	{
-		printf("%s ",array[i]);
-		i++;
-	}
-	free(array);
-	return(1);
-}
+// 	char **array = ft_split("sa/s/s",'/');
+// 	int i = 0;
+// 	while(array[i])
+// 	{
+// 		printf("%s ",array[i]);
+// 		i++;
+// 	}
+// 	free(array);
+// 	return(1);
+// }

@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
 static int	ft_sign(char *str)
 {
@@ -56,16 +55,15 @@ int	ft_atoi(char *str)
 	return (0);
 }
 
-
-int main(void)
-{
-    printf("%d \n",ft_atoi("  ---++sads1234sad123ads"));
-    printf("%d \n",ft_atoi("  ---98789asd"));
-    printf("%d \n",ft_atoi(""));
-    printf("%d \n",ft_atoi("   123+123456asdsd2128"));
+// int main(void)
+// {
+//     printf("%d \n",ft_atoi("  ---++sads1234sad123ads"));
+//     printf("%d \n",ft_atoi("  ---98789asd"));
+//     printf("%d \n",ft_atoi(""));
+//     printf("%d \n",ft_atoi("   123+123456asdsd2128"));
     
-    printf("\n%d \n",atoi("-1234sad123ads"));
-    printf("%d \n",atoi("-98789asd"));
-    printf("%d \n",atoi(""));
-    printf("%d \n",atoi("123+123456asdsd2128"));
-}
+//     printf("\n%d \n",atoi("-1234sad123ads"));
+//     printf("%d \n",atoi("-98789asd"));
+//     printf("%d \n",atoi(""));
+//     printf("%d \n",atoi("123+123456asdsd2128"));
+// }

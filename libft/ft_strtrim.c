@@ -10,10 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
-#include<stdio.h>
 #include"libft.h"
-#include"ft_strlen.c"
 
 static int ft_is_char_in_set(char c, char const *set)
 {
@@ -56,7 +53,7 @@ char *ft_strtrim(char const *s1, char const *set)
 	return (string);
 }
 
-int main (void)
-{
-	printf("%s",ft_strtrim(" / sjdakdj    "," /"));
-}
+// int main (void)
+// {
+// 	printf("%s",ft_strtrim(" / sjdakdj    "," /"));
+// }

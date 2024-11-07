@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
+#include"libft.h"
 
 typedef typeof(sizeof(0)) size_t; 
 
@@ -32,7 +32,7 @@ int ft_memcmp(const void *s1, const void *s2,  size_t n)
 	return (0);
 }
 
-int main(void)
-{
-	printf("%d",ft_memcmp("bba","bbba",3));
-}
+// int main(void)
+// {
+// 	printf("%d",ft_memcmp("bba","bbba",3));
+// }

@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
-
-typedef typeof(sizeof(0)) size_t; 
+#include"libft.h"
 
 char *ft_strnstr(char *big, char *little, int len)
 {
@@ -43,8 +41,8 @@ char *ft_strnstr(char *big, char *little, int len)
 	return 0;
 }
 
-int main (void)
-{
-	printf("%s\n",ft_strnstr("abcdabcdabcd","ef",9));
-	printf("%s\n",ft_strnstr("abcdabcdabcd","da",4));
-}
+// int main (void)
+// {
+// 	printf("%s\n",ft_strnstr("abcdabcdabcd","ef",9));
+// 	printf("%s\n",ft_strnstr("abcdabcdabcd","da",4));
+// }

@@ -9,9 +9,8 @@
 /*   Updated: 2024/11/05 11:44:39 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-#include "libft.h"
-//typedef typeof(sizeof(0)) size_t; 
+
+#include"libft.h"
 
 size_t ft_strlcat(char *dst, const char *src, size_t size)
 {
@@ -38,15 +37,15 @@ size_t ft_strlcat(char *dst, const char *src, size_t size)
 	return (i);
 }
 
-int main(void)
-{
-		char dst[6];
-		dst[0] = 'a';
-		dst[1] = 'b';
-		dst[2] = '\0';
-		char *src = "012345";
+// int main(void)
+// {
+// 		char dst[6];
+// 		dst[0] = 'a';
+// 		dst[1] = 'b';
+// 		dst[2] = '\0';
+// 		char *src = "012345";
 
-		printf("%d\n",(int)ft_strlcat(dst,src,6));
+// 		printf("%d\n",(int)ft_strlcat(dst,src,6));
 
-		printf("%s",dst);
-}
+// 		printf("%s",dst);
+// }

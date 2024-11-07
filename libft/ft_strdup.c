@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
-#include<stdio.h>
+#include"libft.h"
 
 char *strdup(const char *s)
 {
@@ -33,11 +32,11 @@ char *strdup(const char *s)
 	return dup;
 }
 
-int main(void)
-{
-	char *src = "bonjour    sa";
-	char* test = strdup(src);
+// int main(void)
+// {
+// 	char *src = "bonjour    sa";
+// 	char* test = strdup(src);
 
-	printf("%s",test);
-	free(test);
-}
+// 	printf("%s",test);
+// 	free(test);
+// }

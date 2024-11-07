@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
-#include<stdio.h>
+#include"libft.h"
 
 static int ft_strlen(const char *s)
 {
@@ -48,9 +47,9 @@ char *ft_strjoin(char const *s1, char const *s2)
 }
 
 
-int main(void)
-{
-	char *result = ft_strjoin("  ","sasa");
-	printf("%s",result);
-	free(result);
-}
+// int main(void)
+// {
+// 	char *result = ft_strjoin("  ","sasa");
+// 	printf("%s",result);
+// 	free(result);
+// }

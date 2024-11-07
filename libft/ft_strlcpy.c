@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-typedef typeof(sizeof(0)) size_t;
+#include"libft.h"
 
 size_t ft_strlcpy(char *dst, const char *src, size_t size)
 {
@@ -37,12 +35,12 @@ size_t ft_strlcpy(char *dst, const char *src, size_t size)
 	return (i);
 }
 
-int main(void)
-{
-		char dst[10];
-		char *src = "0123456789";
+// int main(void)
+// {
+// 		char dst[10];
+// 		char *src = "0123456789";
 
-		printf("%d\n",ft_strlcpy(dst,src,11));
+// 		printf("%d\n",ft_strlcpy(dst,src,11));
 
-		printf("%s",dst);
-}
+// 		printf("%s",dst);
+// }

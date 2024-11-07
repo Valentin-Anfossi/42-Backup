@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include"libft.h"
-#include<stdio.h>
-#include"ft_strlen.c"
 
 static int ft_itoa_size(int n)
 {
@@ -83,7 +81,7 @@ char *ft_itoa(int n)
 	return (string);
 }
 
-int main(void)
-{
-	printf("%s",ft_itoa(0));
-}
+// int main(void)
+// {
+// 	printf("%s",ft_itoa(0));
+// }

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
+#include"libft.h"
 
 char *ft_strchr(const char *s, int c)
 {
@@ -26,7 +26,7 @@ char *ft_strchr(const char *s, int c)
 	return (0);
 }
 
-int main (void)
-{
-	printf("%s", ft_strchr("bonjour",'j'));
-}
+// int main (void)
+// {
+// 	printf("%s", ft_strchr("bonjour",'j'));
+// }

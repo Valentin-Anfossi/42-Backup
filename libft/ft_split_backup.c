@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include"libft.h"
-#include"ft_strlen.c"
-#include<stdio.h>
 
 static int ft_split_count(char const *s, char c)
 {

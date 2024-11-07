@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include"libft.h"
 
 typedef typeof(sizeof(0)) size_t; 
 
@@ -32,7 +32,7 @@ void *ft_memchr(const void *s, int c, size_t n)
 	return (r);
 }
 
-int main(void)
-{
-	printf("%s", (char *)ft_memchr("bonjour",'j',4));
-}
+// int main(void)
+// {
+// 	printf("%s", (char *)ft_memchr("bonjour",'j',4));
+// }

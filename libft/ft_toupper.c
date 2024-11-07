@@ -20,7 +20,7 @@ int ft_toupper(int c)
 		return (c);
 }
 
-int main (void)
-{
-	printf("test:%c",ft_toupper('c'));
-}
+// int main (void)
+// {
+// 	printf("test:%c",ft_toupper('c'));
+// }

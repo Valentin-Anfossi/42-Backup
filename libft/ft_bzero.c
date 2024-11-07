@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include"libft.h"
+
 typedef typeof(sizeof(0)) size_t; 
 
 void    ft_bzero(void *s, size_t n)
