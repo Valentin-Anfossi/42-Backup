@@ -25,7 +25,6 @@ size_t ft_strlcat(char *dst, const char *src, size_t size)
 		return (0);
 	while(dst[i] != 0)
 		i++;
-	printf("%d\n",i);
 	while(i < (int)size)
 	{
 		dst[i] = charsrc[j];

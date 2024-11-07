@@ -16,7 +16,7 @@ typedef typeof(sizeof(0)) size_t;
 
 void    ft_bzero(void *s, size_t n)
 {
-    int i;
+    size_t i;
     unsigned char *c;
 
     c = s;
