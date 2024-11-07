@@ -28,3 +28,12 @@ FLAGS = -Wall -Wextra -Werror
 
 all : $(CC) $(FLAGS) -c $(SOURCES) -I./
 	ar -rc $(NAME) $(OFILES)
+
+clean:
+	rm -f $(NAME)
+	rm -f $(OFILES)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
