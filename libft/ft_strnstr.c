@@ -27,7 +27,7 @@ char *ft_strnstr(const char *big, const char *little, int len)
 	while(little[littlelen])
 		littlelen++;
 	if(littlelen == 0)
-		return (big);
+		return ((const char *)big);
 	while(big[i] && ++i < len-2)
 	{
 		littlestart = i;
@@ -37,7 +37,7 @@ char *ft_strnstr(const char *big, const char *little, int len)
 			j++;
 			if(j == littlelen)
 			{
-				ptr = big + littlestart;
+				ptr = (const char*)big + littlestart;
 				return(ptr);
 			}
 		}
