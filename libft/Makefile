@@ -27,4 +27,5 @@ CC = GCC
 
 FLAGS = -Wall -Wextra -Werror
 
-all: $(OBJS) ar rcs ($NAME) ($OBJS)
+all : $(CC) $(FLAGS) -c $(SOURCES) -I./
+	ar -rc $(NAME) $(OFILES)
