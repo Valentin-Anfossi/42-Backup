@@ -26,7 +26,10 @@ CC	= gcc
 
 FLAGS	= -Wall -Wextra -Werror
 
-all: $(CC) $(FLAGS) -c $(SOURCES) -I./
+all: $(NAME)
+
+$(NAME): $(OFILES)
+	$(CC) $(FLAGS) -c $(SOURCES) -I./
 	ar -rc $(NAME) $(OFILES)
 
 clean:
