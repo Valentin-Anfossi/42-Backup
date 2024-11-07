@@ -12,8 +12,6 @@
 
 #include"libft.h"
 
-typedef typeof(sizeof(0)) size_t; 
-
 void *ft_memchr(const void *s, int c, size_t n)
 {
 	size_t i;

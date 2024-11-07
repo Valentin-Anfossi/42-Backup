@@ -15,7 +15,7 @@
 
 typedef typeof(sizeof(0)) size_t; 
 
-void *calloc(size_t nmemb, size_t size)
+void *ft_calloc(size_t nmemb, size_t size)
 {
 	if(nmemb == 0 || size == 0)
 		return NULL;
