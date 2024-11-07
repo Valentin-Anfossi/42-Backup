@@ -12,13 +12,12 @@
 
 #include"libft.h"
 
-char *ft_strnstr(char *big, char *little, int len)
+char *ft_strnstr(const char *big, const char *little, int len)
 {
 	int i;
 	int j;
 	int littlestart;
 	int littlelen;
-	char* ptr;
 
 	i = 0;
 	j = 0;
@@ -36,10 +35,7 @@ char *ft_strnstr(char *big, char *little, int len)
 			i++;
 			j++;
 			if(j == littlelen)
-			{
-				ptr = big + littlestart;
-				return(ptr);
-			}
+				return(big + littlestart);
 		}
 	}
 	return 0;
