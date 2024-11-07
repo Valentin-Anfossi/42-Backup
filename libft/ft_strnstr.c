@@ -18,6 +18,7 @@ char *ft_strnstr(char *big, char *little, int len)
 	int j;
 	int littlestart;
 	int littlelen;
+	char* ptr;
 
 	i = 0;
 	j = 0;
@@ -35,7 +36,10 @@ char *ft_strnstr(char *big, char *little, int len)
 			i++;
 			j++;
 			if(j == littlelen)
-				return(big + littlestart);
+			{
+				ptr = big + littlestart;
+				return(ptr);
+			}
 		}
 	}
 	return 0;
