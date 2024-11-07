@@ -15,8 +15,9 @@
 
 #include <stdlib.h>
 #include <unistd.h>
+#include <stddef.h>
 
-typedef unsigned long size_t;
+//typedef unsigned long size_t;
 
 int	ft_atoi(const char *str);
 void ft_bzero(void *s, size_t n);
