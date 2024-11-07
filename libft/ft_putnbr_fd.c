@@ -22,12 +22,12 @@ void ft_putnbr_fd(int n, int fd)
 		{
 			c = '-';
 			write(fd, &c, 1);
-			ft_putnbr(n * -1);
+			ft_putnbr_fd(n * -1);
 		}
 		else if (n > 9)
 		{
-			ft_putnbr(n / 10);
-			ft_putnbr(n % 10);
+			ft_putnbr_fd(n / 10);
+			ft_putnbr_fd(n % 10);
 		}
 		else
 		{
