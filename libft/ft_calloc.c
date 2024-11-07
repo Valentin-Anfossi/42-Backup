@@ -13,12 +13,10 @@
 #include<stdlib.h>
 #include"libft.h"
 
-typedef typeof(sizeof(0)) size_t; 
-
 void *ft_calloc(size_t nmemb, size_t size)
 {
 	if(nmemb == 0 || size == 0)
-		return NULL;
+		return (0);
 	else
 		return (malloc(nmemb * size));
 }
