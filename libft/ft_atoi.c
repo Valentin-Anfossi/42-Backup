@@ -12,47 +12,31 @@
 
 #include "libft.h"
 
-static int	ft_sign(const char *str)
-{
-	int	sign;
-	int	i;
-
-	sign = 0;
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == '-')
-			sign -= 1;
-		i++;
-	}
-	if (sign % 2 != 0)
-		return (-1);
-	else
-		return (1);
-}
-
 int	ft_atoi(const char *str)
 {
 	int	nb;
 	int	i;
-	int	stop;
+	int n;
 
-	stop = 0;
+	n = 1;
 	i = 0;
 	nb = 0;
-	while (str[i])
+	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' || str[i] == '\v'
+			|| str[i] == '\f' || str[i] == '\r')
+		i++;
+	if(str[i] == '-')
 	{
-		while (str[i] >= '0' && str[i] <= '9' && str[i])
-		{
-			nb = nb * 10 + (str[i] - '0');
-			i++;
-			stop = 1;
-		}
-		if (stop == 1)
-			return (nb * ft_sign(str));
+		n *= -1;
 		i++;
 	}
-	return (0);
+	else if(str[i] == '+')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		nb = nb * 10 + (str[i] - '0');
+		i++;
+	}
+	return (nb * n);
 }
 
 // int main(void)

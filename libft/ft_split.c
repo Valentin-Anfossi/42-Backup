@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+//#include"libft.h"
+#include<stdlib.h>
+#include<stdio.h>
 
 static int ft_split_count(char const *s, char c)
 {
@@ -18,11 +20,28 @@ static int ft_split_count(char const *s, char c)
 	int i;
 
 	count = 0;
-	i = -1;
-	while(s[++i])
-		if(s[i] == c)
-			count ++;
+	i = 0;
+	while(s[i])
+	{
+		while(s[i] == c)
+			i++;
+		if(s[i - 1] == c)
+			count++;
+		i++;
+		printf("%d",count);
+	}
+	
 	return (count+1);
+}
+
+size_t ft_strlen(const char *s)
+{
+    size_t i;
+    
+    i = 0;
+    while (s[i])
+        i ++;
+    return i;
 }
 
 static char **ft_the_mallocator(char const *s,char c)
@@ -33,14 +52,14 @@ static char **ft_the_mallocator(char const *s,char c)
 
 	i = 0;
 	count = ft_split_count(s,c);
-	array = (char**)malloc((count + 1) * sizeof(char*));
+	array = (char**)malloc((count+1) * sizeof(char*));
 	while(i<count)
 	{
-		array[i] = (char*)malloc(ft_strlen(s) + 1 * sizeof(char));
+		array[i] = (char*)malloc((ft_strlen(s) + 1 * sizeof(char)));
 		i++;
 	}
 	if(!array)
-		return (NULL);
+		return (0);
 	return (array);
 }
 

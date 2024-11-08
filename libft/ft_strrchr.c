@@ -15,17 +15,20 @@
 char *ft_strrchr(const char *s, int c)
 {
 	int i;
-	char *r;
-	
-	r = 0;
-	i = 0;
+
+	i = ft_strlen(s)-1;
+	c %= 256;
+	if(!s)
+		return (0);
+	if(c == 0)
+		return ((char *)s + ft_strlen(s));
 	while (s[i])
 	{
 		if(s[i] == c)
-			r = (char *)&s[i];
-	i++;
+			return((char *)s + i);
+	i--;
 	}
-	return (r);
+	return (0);
 }
 
 // int main (void)

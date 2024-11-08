@@ -10,19 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+// Test fails when nmenb == 0 and size is neg
+
 #include<stdlib.h>
 #include"libft.h"
 
 void *ft_calloc(size_t nmemb, size_t size)
 {
-	if(nmemb == 0 || size == 0)
-		return (0);
-	else
-		return (malloc(nmemb * size));
+	void *r;
+	unsigned long int s;
+
+	s = nmemb * size;
+	r = (void *)malloc(s);
+	if(r == 0)
+		return(r);
+	ft_bzero(r, s);
+	return(r);
 }
 
-int main (void)
-{
-	void *test = calloc(0,0);
-	free(test);
-}
+// int main (void)
+// {
+// 	void *test = calloc(0,0);
+// 	free(test);
+// }

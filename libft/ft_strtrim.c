@@ -41,7 +41,7 @@ char *ft_strtrim(char const *s1, char const *set)
 	en  = ft_strlen(s1)-1;
 	while(s1[en] && ft_is_char_in_set(s1[en],set))
 		en --;
-	string = malloc((en - st + 1) * sizeof(char));
+	string = malloc((en - st + 2) * sizeof(char));
 	if(!string)
 		return (0);
 	while(i < en-st+1)

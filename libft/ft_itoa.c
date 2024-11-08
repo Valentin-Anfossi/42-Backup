@@ -66,6 +66,11 @@ char *ft_itoa(int n)
 	
 	i = 0;
 	string = ft_itoa_mallocu(n);
+	if(n == INT_MIN)
+	{
+		string = "-2147483648";
+		return (string);
+	}
 	if(n < 0)
 	{	
 		n *= -1;
