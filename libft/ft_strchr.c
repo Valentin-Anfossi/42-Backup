@@ -6,25 +6,25 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 14:26:58 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/05 14:26:58 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/11/08 16:09:10 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-char *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	c %= 256;
-	while(s[i])
+	while (s[i])
 	{
-		if(s[i] == c)
+		if (s[i] == c)
 			return ((char *)s + i);
-	i++;
+		i++;
 	}
-	if(c == 0)
+	if (c == 0)
 	{
 		return ((char *)s + i);
 	}

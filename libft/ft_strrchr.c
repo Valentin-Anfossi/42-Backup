@@ -6,27 +6,27 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:02:20 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/05 15:02:20 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/11/08 16:10:15 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-char *ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	int i;
+	int	i;
 
-	i = ft_strlen(s)-1;
+	i = ft_strlen(s) -1;
 	c %= 256;
-	if(!s)
+	if (!s)
 		return (0);
-	if(c == 0)
+	if (c == 0)
 		return ((char *)s + ft_strlen(s));
 	while (s[i])
 	{
-		if(s[i] == c)
-			return((char *)s + i);
-	i--;
+		if (s[i] == c)
+			return ((char *)s + i);
+		i--;
 	}
 	return (0);
 }

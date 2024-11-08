@@ -6,18 +6,18 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 19:28:58 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/08 15:56:36 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/11/08 16:06:17 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-char *ft_strdup(const char *s)
+char	*ft_strdup(const char *s)
 {
-	int slen;
-	int i;
-	char *dup;
-	
+	int		slen;
+	int		i;
+	char	*dup;
+
 	slen = 0;
 	i = 0;
 	while (s[slen])
@@ -29,7 +29,7 @@ char *ft_strdup(const char *s)
 		i++;
 	}
 	dup[i] = '\0';
-	return dup;
+	return (dup);
 }
 
 // int main(void)

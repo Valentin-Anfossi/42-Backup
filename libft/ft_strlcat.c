@@ -6,24 +6,24 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 11:44:39 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/05 11:44:39 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/11/08 16:07:15 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-size_t ft_strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t i;
-	size_t j;
-	char *charsrc;
+	size_t	i;
+	size_t	j;
+	char	*charsrc;
 
 	charsrc = (char *)src;
 	i = ft_strlen(dst);
 	j = 0;
-	if(size <= i)
+	if (size <= i)
 		return (size + ft_strlen(src));
-	while(charsrc[j] && i + j < (size - 1))
+	while (charsrc[j] && i + j < (size - 1))
 	{
 		dst[i + j] = charsrc[j];
 		j++;
