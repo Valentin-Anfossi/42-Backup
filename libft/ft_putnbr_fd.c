@@ -6,13 +6,13 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 04:29:25 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/07 04:29:25 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/11/08 14:47:05 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-void ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	int	c;
 
@@ -22,12 +22,12 @@ void ft_putnbr_fd(int n, int fd)
 		{
 			c = '-';
 			write(fd, &c, 1);
-			ft_putnbr_fd(n * -1,fd);
+			ft_putnbr_fd (n * -1, fd);
 		}
 		else if (n > 9)
 		{
-			ft_putnbr_fd(n / 10,fd);
-			ft_putnbr_fd(n % 10,fd);
+			ft_putnbr_fd (n / 10, fd);
+			ft_putnbr_fd (n % 10, fd);
 		}
 		else
 		{

@@ -6,26 +6,25 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 12:30:42 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/08 12:16:33 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/11/08 14:54:43 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include"libft.h"
-#include<stdlib.h>
-#include<stdio.h>
+#include "libft.h"
+#include <stdlib.h>
 
-static int ft_split_count(char const *s, char c)
+static int	ft_split_count(char const *s, char c)
 {
-	int count;
-	int i;
+	int	count;
+	int	i;
 
 	count = 0;
 	i = 0;
-	while(s[i])
+	while (s[i])
 	{
-		while(s[i] == c)
+		while (s[i] == c)
 			i++;
-		if(s[i] != '\0')
+		if (s[i] != '\0')
 		{
 			count++;
 			while (s[i] != c && s[i] != '\0')
@@ -35,44 +34,45 @@ static int ft_split_count(char const *s, char c)
 	return (count);
 }
 
-size_t ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-    size_t i;
-    
-    i = 0;
-    while (s[i])
-        i ++;
-    return i;
-}
-
-static char **ft_the_mallocator(char const *s,char c)
-{
-	int count;
-	char **array;
-	int i;
+	size_t	i;
 
 	i = 0;
-	count = ft_split_count(s,c);
-	array = (char**)malloc((count+1) * sizeof(char*));
-	if(!array)
+	while (s[i])
+		i ++;
+	return (i);
+}
+
+static char	**ft_the_mallocator(char const *s, char c)
+{
+	int		count;
+	char	**array;
+	int		i;
+
+	i = 0;
+	count = ft_split_count(s, c);
+	array = (char **)malloc((count + 1) * sizeof(char *));
+	if (!array)
 		return (0);
-	while(i<count)
+	while (i < count)
 	{
-		array[i] = (char*)malloc((ft_strlen(s) + 1 * sizeof(char)));
-		if(!array[i])
-			return(0);
+		array[i] = (char *)malloc((ft_strlen(s) + 1 * sizeof(char)));
+		if (!array[i])
+			return (0);
 		i++;
 	}
 	return (array);
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	char **array = ft_the_mallocator(s, c);
-	int i;
-	int j;
-	int k;
+	char	**array;
+	int		i;
+	int		j;
+	int		k;
 
+	array = ft_the_mallocator(s, c);
 	i = 0;
 	j = 0;
 	k = 0;
@@ -80,7 +80,7 @@ char **ft_split(char const *s, char c)
 	{
 		if (s[i] == c)
 		{
-			if (k > 0) 
+			if (k > 0)
 				array[j++][k] = 0;
 			k = 0;
 		}
@@ -88,15 +88,14 @@ char **ft_split(char const *s, char c)
 			array[j][k++] = s[i];
 		i++;
 	}
-	if (k > 0) 
+	if (k > 0)
 		array[j++][k] = 0;
-	array[j+1] = 0;
-	return array;
+	array[j + 1] = 0;
+	return (array);
 }
 
 // int main(void)
 // {
-	
 // 	char **array = ft_split("sa/s/s",'/');
 // 	int i = 0;
 // 	while(array[i])

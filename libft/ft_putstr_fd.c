@@ -6,20 +6,20 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 20:59:49 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/06 20:59:49 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/11/08 14:47:38 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-void ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(s[i])
+	while (s[i])
 	{
-		write(fd,&s[i],1);
+		write(fd, &s[i], 1);
 		i++;
 	}
 }
