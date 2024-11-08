@@ -6,16 +6,16 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 11:33:59 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/04 11:40:35 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/11/08 13:29:00 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
-    if(c >= 0 && c <= 127)
-        return 1;
-    else
-        return 0;
+	if (c >= 0 && c <= 127)
+		return (1);
+	else
+		return (0);
 }

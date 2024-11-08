@@ -6,32 +6,33 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 15:33:10 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/06 15:33:10 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/11/08 13:34:01 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-static int ft_itoa_size(int n)
+static int	ft_itoa_size(int n)
 {
-	int count;
-	
+	int	count;
+
 	count = 1;
 	while (n > 9)
 	{
 		count ++;
 		n /= 10;
-		continue;
+		continue ;
 	}
-	if(n < 0)
+	if (n < 0)
 		count ++;
-	return count;
+	return (count);
 }
 
-static char *ft_itoa_mallocu(int n)
+static char	*ft_itoa_mallocu(int n)
 {
-	char *string;
-	if(n < 0)
+	char	*string;
+
+	if (n < 0)
 	{
 		string = malloc ((ft_itoa_size(n) + 2) * sizeof(char));
 		string[0] = '-';
@@ -43,12 +44,12 @@ static char *ft_itoa_mallocu(int n)
 	return (string);
 }
 
-static char* ft_itoa_helper(int n, int n2, char *s)
+static char	*ft_itoa_helper(int n, int n2, char *s)
 {
-	if(s[0] == '-')
+	if (s[0] == '-')
 	{
 		s[1] = n + 48;
-		s[ft_itoa_size(n2)+1] = 0;
+		s[ft_itoa_size(n2) + 1] = 0;
 	}
 	else
 	{
@@ -58,28 +59,28 @@ static char* ft_itoa_helper(int n, int n2, char *s)
 	return (s);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-	char *string;
-	int i;
-	int n2;
-	
+	char	*string;
+	int		i;
+	int		n2;
+
 	i = 0;
 	string = ft_itoa_mallocu(n);
-	if(n == INT_MIN)
+	if (n == INT_MIN)
 	{
 		string = "-2147483648";
 		return (string);
 	}
-	if(n < 0)
-	{	
+	if (n < 0)
+	{
 		n *= -1;
 		i = -1;
 	}
 	n2 = n;
-	while(n>9)
+	while (n > 9)
 	{
-		string[ft_itoa_size(n2)-i++-1] = (n % 10) + 48;
+		string[ft_itoa_size(n2) - i++ - 1] = (n % 10) + 48;
 		n /= 10;
 	}
 	string = ft_itoa_helper(n, n2, string);

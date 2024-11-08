@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 12:30:42 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/06 12:30:42 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/11/08 12:16:33 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,14 @@ static int ft_split_count(char const *s, char c)
 	{
 		while(s[i] == c)
 			i++;
-		if(s[i - 1] == c)
+		if(s[i] != '\0')
+		{
 			count++;
-		i++;
-		printf("%d",count);
+			while (s[i] != c && s[i] != '\0')
+				i++;
+		}
 	}
-	
-	return (count+1);
+	return (count);
 }
 
 size_t ft_strlen(const char *s)
@@ -53,13 +54,15 @@ static char **ft_the_mallocator(char const *s,char c)
 	i = 0;
 	count = ft_split_count(s,c);
 	array = (char**)malloc((count+1) * sizeof(char*));
+	if(!array)
+		return (0);
 	while(i<count)
 	{
 		array[i] = (char*)malloc((ft_strlen(s) + 1 * sizeof(char)));
+		if(!array[i])
+			return(0);
 		i++;
 	}
-	if(!array)
-		return (0);
 	return (array);
 }
 
@@ -87,7 +90,7 @@ char **ft_split(char const *s, char c)
 	}
 	if (k > 0) 
 		array[j++][k] = 0;
-	array[j] = 0;
+	array[j+1] = 0;
 	return array;
 }
 

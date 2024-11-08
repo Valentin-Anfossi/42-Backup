@@ -6,18 +6,18 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 11:21:01 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/04 11:40:23 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/11/08 13:28:03 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-int ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
-    if((c >= 'a' && c <= 'z')||(c >= 'A' && c <= 'Z'))
-    {
-        return 1;   
-    }
-    else
-        return 0;
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+	{
+		return (1);
+	}
+	else
+		return (0);
 }
