@@ -11,20 +11,25 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-static int	ft_itoa_size(int n)
+static int ft_int_size(long n)
 {
 	int	count;
 
-	count = 1;
-	while (n > 9)
+	count = 0;
+	if (n < 0)
 	{
 		count ++;
-		n /= 10;
-		continue ;
+		n = -n;
 	}
-	if (n < 0)
-		count ++;
+	if (n == 0)
+		count++;
+	while (n != 0)
+	{
+		n /= 10;
+		count++;
+	}
 	return (count);
 }
 
@@ -32,62 +37,39 @@ static char	*ft_itoa_mallocu(int n)
 {
 	char	*string;
 
-	if (n < 0)
-	{
-		string = malloc ((ft_itoa_size(n) + 2) * sizeof(char));
-		string[0] = '-';
-	}
-	else
-		string = malloc ((ft_itoa_size(n) + 1) * sizeof(char));
+	string = malloc((n + 1));
 	if (!string)
 		return (0);
+	string[0] = '0';
 	return (string);
-}
-
-static char	*ft_itoa_helper(int n, int n2, char *s)
-{
-	if (s[0] == '-')
-	{
-		s[1] = n + 48;
-		s[ft_itoa_size(n2) + 1] = 0;
-	}
-	else
-	{
-		s[0] = n + 48;
-		s[ft_itoa_size(n2)] = 0;
-	}
-	return (s);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*string;
-	int		i;
-	int		n2;
+	int length;
+	char *string;
+	long nbr;
+	int i;
 
-	i = 0;
-	string = ft_itoa_mallocu(n);
-	if (n == INT_MIN)
+	length = ft_int_size(n);
+	nbr = n;
+	string = ft_itoa_mallocu(length);
+	if(nbr < 0)
+		nbr *= -1;
+	i = length - 1;
+	while (nbr != 0)
 	{
-		string = "-2147483648";
-		return (string);
+		string[i] = ((nbr % 10) + 48);
+		nbr = nbr / 10;
+		i --;
 	}
 	if (n < 0)
-	{
-		n *= -1;
-		i = -1;
-	}
-	n2 = n;
-	while (n > 9)
-	{
-		string[ft_itoa_size(n2) - i++ - 1] = (n % 10) + 48;
-		n /= 10;
-	}
-	string = ft_itoa_helper(n, n2, string);
+		string[0] = '-';
+	string[length] = 0;
 	return (string);
 }
 
 // int main(void)
 // {
-// 	printf("%s",ft_itoa(0));
+// 	printf("%s",ft_itoa(-98744));
 // }

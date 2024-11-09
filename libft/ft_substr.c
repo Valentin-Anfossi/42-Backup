@@ -14,12 +14,21 @@
 
 char *ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int i;
-	char *subst;
+	int		i;
+	char	*subst;
 
 	i = 0;
-	subst = malloc(len+1);
-	if(subst == 0)
+	if(!s)
+		return (0);
+	if(start >= ft_strlen(s))
+	{
+		subst = "";
+		return (subst);
+	}
+	if (start + len > ft_strlen(s))
+        len = ft_strlen(s) - start;
+	subst = malloc(len + 1);
+	if(!subst)
 		return 0;
 	while(s[start] && ((size_t)i < len))
 	{
@@ -27,7 +36,7 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 		i++;
 	}
 	subst[i] = 0;
-	return subst;
+	return (subst);
 }
 
 // int main(void)

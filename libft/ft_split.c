@@ -1,108 +1,101 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_split2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 12:30:42 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/08 14:54:43 by vanfossi         ###   ########.fr       */
+/*   Created: 2024/11/08 21:41:04 by vanfossi          #+#    #+#             */
+/*   Updated: 2024/11/08 21:41:04 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-static int	ft_split_count(char const *s, char c)
+static int	ft_count_splits(const char *s, char c)
 {
-	int	count;
 	int	i;
+	int	count;
 
-	count = 0;
 	i = 0;
+	count = 0;
 	while (s[i])
 	{
-		while (s[i] == c)
-			i++;
-		if (s[i] != '\0')
-		{
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
 			count++;
-			while (s[i] != c && s[i] != '\0')
-				i++;
-		}
+		i++;
 	}
 	return (count);
 }
 
-size_t	ft_strlen(const char *s)
+static char	*ft_make_word(const char *s, int st, char c)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i ++;
-	return (i);
-}
-
-static char	**ft_the_mallocator(char const *s, char c)
-{
-	int		count;
-	char	**array;
+	char	*word;
 	int		i;
+	int		j;
+	int		end;
 
-	i = 0;
-	count = ft_split_count(s, c);
-	array = (char **)malloc((count + 1) * sizeof(char *));
-	if (!array)
+	i = st;
+	j = 0;
+	end = st;
+	while (s[end] && s[end] != c)
+		end++;
+	word = ft_calloc(sizeof(char), end - st + 1);
+	if (!word)
 		return (0);
-	while (i < count)
+	while (i < end)
 	{
-		array[i] = (char *)malloc((ft_strlen(s) + 1 * sizeof(char)));
-		if (!array[i])
-			return (0);
-		i++;
+		word[j++] = s[i++];
 	}
-	return (array);
+	word[j] = '\0';
+	return (word);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(const char *s, char c)
 {
 	char	**array;
 	int		i;
 	int		j;
-	int		k;
 
-	array = ft_the_mallocator(s, c);
 	i = 0;
 	j = 0;
-	k = 0;
+	array = ft_calloc(sizeof(char *), ft_count_splits(s, c) + 1);
+	if (!array)
+		return (0);
 	while (s[i])
 	{
-		if (s[i] == c)
+		if (s[i] != c && s[i] != '\0')
 		{
-			if (k > 0)
-				array[j++][k] = 0;
-			k = 0;
+			array[j] = ft_make_word(s, i, c);
+			if (!array[j])
+				return (0);
+			while (s[i] && s[i] != c)
+				i++;
+			j++;
 		}
 		else
-			array[j][k++] = s[i];
-		i++;
+			i++;
 	}
-	if (k > 0)
-		array[j++][k] = 0;
-	array[j + 1] = 0;
+	array[j] = 0;
 	return (array);
 }
 
 // int main(void)
 // {
-// 	char **array = ft_split("sa/s/s",'/');
+// 	int res1 = ft_count_splits("   bon sjkaldj huw klaskl 9oi  
+// klsjkl    jksladj  k llsak  ",' ');
+// 	printf("%d\n",res1);
+// 	res1 = ft_count_splits("a ",' ');
+// 	printf("%d\n",res1);
+//  	res1 = ft_count_splits("soadj sjaodja",' ');
+// 	printf("%d\n",res1);
+
+// 	char **thebigarrayonhiship = ft_split("   bon sjkaldj huw 
+// klaskl 9oi  klsjkl    jksladj  k llsak  ",' ');
 // 	int i = 0;
-// 	while(array[i])
-// 	{
-// 		printf("%s ",array[i]);
-// 		i++;
-// 	}
-// 	free(array);
-// 	return(1);
+// 	while (thebigarrayonhiship[i])
+// {
+// 	printf("%s\n",thebigarrayonhiship[i]);
+// 	i++;
+// }
 // }
