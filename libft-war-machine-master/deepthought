@@ -3,7 +3,7 @@ $> hostname; uname -msr
 DESKTOP-83L05AK
 Linux 5.15.153.1-microsoft-standard-WSL2 x86_64
 $> date
-Sat Nov  9 00:40:26 CET 2024
+Sat Nov  9 10:24:24 CET 2024
 $> gcc --version
 gcc (Ubuntu 13.2.0-23ubuntu4) 13.2.0
 Copyright (C) 2023 Free Software Foundation, Inc.
@@ -21,6 +21,7 @@ $> norminette libft.h | grep -E '(Error|Warning)'
 
 = Compiling libft ==============================================================
 $> make re
+make: Warning: File 'Makefile' has modification time 3.6 s in the future
 rm -f libft.a
 rm -f ft_atoi.o ft_bzero.o ft_calloc.o ft_isalnum.o ft_isalpha.o ft_isascii.o ft_isdigit.o ft_isprint.o ft_itoa.o ft_memchr.o ft_memcmp.o ft_memcpy.o ft_memmove.o ft_memset.o ft_putchar_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_putstr_fd.o ft_split.o ft_strchr.o ft_strdup.o ft_striteri.o ft_strjoin.o ft_strlcat.o ft_strlcpy.o ft_strlen.o ft_strmapi.o ft_strncmp.o ft_strnstr.o ft_strrchr.o ft_strtrim.o ft_substr.o ft_tolower.o ft_toupper.o
 rm -f libft.a
@@ -60,12 +61,14 @@ gcc    -c -o ft_tolower.o ft_tolower.c
 gcc    -c -o ft_toupper.o ft_toupper.c
 gcc -Wall -Wextra -Werror -c ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_itoa.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_split.c ft_strchr.c ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c -I./
 ar -rc libft.a ft_atoi.o ft_bzero.o ft_calloc.o ft_isalnum.o ft_isalpha.o ft_isascii.o ft_isdigit.o ft_isprint.o ft_itoa.o ft_memchr.o ft_memcmp.o ft_memcpy.o ft_memmove.o ft_memset.o ft_putchar_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_putstr_fd.o ft_split.o ft_strchr.o ft_strdup.o ft_striteri.o ft_strjoin.o ft_strlcat.o ft_strlcpy.o ft_strlen.o ft_strmapi.o ft_strncmp.o ft_strnstr.o ft_strrchr.o ft_strtrim.o ft_substr.o ft_tolower.o ft_toupper.o
+make: warning:  Clock skew detected.  Your build may be incomplete.
 
 $> make bonus
+make: Warning: File 'Makefile' has modification time 0.47 s in the future
 make: *** No rule to make target '(AMEBONUS)', needed by 'bonus'.  Stop.
 
 $> ls -la libft.a
--rwxrwxrwx 1 vanfossi vanfossi 53198 Nov  9 00:40 /mnt/c/Users/valen/OneDrive/Documents/GitHub/42-Backup/libft-war-machine-master/dirlibft/libft.a
+-rwxrwxrwx 1 vanfossi vanfossi 52798 Nov  9  2024 /mnt/c/Users/valen/OneDrive/Documents/GitHub/42-Backup/libft-war-machine-master/dirlibft/libft.a
 
 = Part1_functions ==============================================================
 
@@ -833,9 +836,7 @@ $> ./user_exe 07
 $> diff -U 3 user_output_test07 test07.output
 
 Diff OK :D
-= Test 8 ===================================================
-$> ./user_exe 08
-$> diff -U 3 user_output_test08 test08.output
+= Test 8 $> diff -U 3 user_output_test08 test08.output
 
 Diff OK :D
 
@@ -963,16 +964,6 @@ Diff OK :D
 
 = ft_strmapi.c =================================================================
 $> norminette ft_strmapi.c | grep -E '(Error|Warning)'
-/mnt/c/Documents and Settings/valen/OneDrive/Documents/GitHub/42-Backup/libft/ft_strmapi.c: Error!
-Error: PREPROC_NO_SPACE     (line:  13, col:   9):	Missing space after preprocessor directive
-Error: SPACE_BEFORE_FUNC    (line:  15, col:   5):	space before function name
-Error: SPACE_REPLACE_TAB    (line:  17, col:   9):	Found space when expecting tab
-Error: SPACE_REPLACE_TAB    (line:  18, col:  17):	Found space when expecting tab
-Error: MISALIGNED_VAR_DECL  (line:  18, col:  18):	Misaligned variable declaration
-Error: SPACE_AFTER_KW       (line:  23, col:   9):	Missing space after keyword
-Error: SPC_BFR_PAR          (line:  23, col:  15):	Missing space before parenthesis (brace/bracket)
-Error: BRACE_SHOULD_EOL     (line:  31, col:   1):	Expected newline after brace
-Norme check failed
 $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strmapi.c main.c libft.a -o user_exe
 
 = Test 1 ===================================================
@@ -983,23 +974,6 @@ Diff OK :D
 
 = ft_substr.c ==================================================================
 $> norminette ft_substr.c | grep -E '(Error|Warning)'
-/mnt/c/Documents and Settings/valen/OneDrive/Documents/GitHub/42-Backup/libft/ft_substr.c: Error!
-Error: PREPROC_NO_SPACE     (line:  13, col:   9):	Missing space after preprocessor directive
-Error: SPACE_BEFORE_FUNC    (line:  15, col:   5):	space before function name
-Error: SPACE_AFTER_KW       (line:  21, col:   5):	Missing space after keyword
-Error: SPC_BFR_PAR          (line:  21, col:   7):	Missing space before parenthesis (brace/bracket)
-Error: SPACE_AFTER_KW       (line:  23, col:   5):	Missing space after keyword
-Error: SPC_BFR_PAR          (line:  23, col:   7):	Missing space before parenthesis (brace/bracket)
-Error: TOO_FEW_TAB          (line:  29, col:   1):	Missing tabs for indent level
-Error: SPACE_REPLACE_TAB    (line:  29, col:   9):	Found space when expecting tab
-Error: SPACE_AFTER_KW       (line:  31, col:   5):	Missing space after keyword
-Error: SPC_BFR_PAR          (line:  31, col:   7):	Missing space before parenthesis (brace/bracket)
-Error: RETURN_PARENTHESIS   (line:  32, col:  16):	Return value must be in parenthesis
-Error: SPACE_AFTER_KW       (line:  33, col:   5):	Missing space after keyword
-Error: SPC_BFR_PAR          (line:  33, col:  10):	Missing space before parenthesis (brace/bracket)
-Error: SPC_AFTER_OPERATOR   (line:  35, col:  27):	missing space after operator
-Error: SPC_BFR_OPERATOR     (line:  35, col:  27):	missing space before operator
-Norme check failed
 $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_substr.c main.c libft.a -o user_exe
 
 = Test 1 ===================================================
@@ -1030,30 +1004,6 @@ Diff OK :D
 
 = ft_strjoin.c =================================================================
 $> norminette ft_strjoin.c | grep -E '(Error|Warning)'
-/mnt/c/Documents and Settings/valen/OneDrive/Documents/GitHub/42-Backup/libft/ft_strjoin.c: Error!
-Error: PREPROC_NO_SPACE     (line:  13, col:   9):	Missing space after preprocessor directive
-Error: SPACE_BEFORE_FUNC    (line:  15, col:   5):	space before function name
-Error: SPACE_REPLACE_TAB    (line:  17, col:   8):	Found space when expecting tab
-Error: SPACE_REPLACE_TAB    (line:  18, col:   8):	Found space when expecting tab
-Error: SPACE_REPLACE_TAB    (line:  19, col:   8):	Found space when expecting tab
-Error: SPACE_REPLACE_TAB    (line:  20, col:   8):	Found space when expecting tab
-Error: SPACE_REPLACE_TAB    (line:  21, col:   9):	Found space when expecting tab
-Error: MISALIGNED_VAR_DECL  (line:  21, col:  10):	Misaligned variable declaration
-Error: SPC_BFR_OPERATOR     (line:  27, col:  31):	missing space before operator
-Error: SPC_AFTER_OPERATOR   (line:  27, col:  48):	missing space after operator
-Error: SPC_BFR_OPERATOR     (line:  27, col:  48):	missing space before operator
-Error: SPACE_AFTER_KW       (line:  28, col:   5):	Missing space after keyword
-Error: SPC_BFR_PAR          (line:  28, col:   7):	Missing space before parenthesis (brace/bracket)
-Error: RETURN_PARENTHESIS   (line:  29, col:  16):	Return value must be in parenthesis
-Error: SPACE_AFTER_KW       (line:  30, col:   5):	Missing space after keyword
-Error: SPC_BFR_PAR          (line:  30, col:  10):	Missing space before parenthesis (brace/bracket)
-Error: SPACE_AFTER_KW       (line:  33, col:   5):	Missing space after keyword
-Error: SPC_BFR_PAR          (line:  33, col:  10):	Missing space before parenthesis (brace/bracket)
-Error: SPC_AFTER_PAR        (line:  35, col:  10):	Missing space after parenthesis (brace/bracket)
-Error: SPC_AFTER_OPERATOR   (line:  35, col:  11):	missing space after operator
-Error: SPC_BFR_OPERATOR     (line:  35, col:  11):	missing space before operator
-Error: CONSECUTIVE_NEWLINES (line:  39, col:   1):	Consecutive newlines
-Norme check failed
 $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strjoin.c main.c libft.a -o user_exe
 
 = Test 1 ===================================================
@@ -1079,36 +1029,6 @@ Diff OK :D
 
 = ft_strtrim.c =================================================================
 $> norminette ft_strtrim.c | grep -E '(Error|Warning)'
-/mnt/c/Documents and Settings/valen/OneDrive/Documents/GitHub/42-Backup/libft/ft_strtrim.c: Error!
-Error: PREPROC_NO_SPACE     (line:  13, col:   9):	Missing space after preprocessor directive
-Error: SPACE_BEFORE_FUNC    (line:  15, col:  11):	space before function name
-Error: SPACE_REPLACE_TAB    (line:  17, col:   8):	Found space when expecting tab
-Error: SPACE_EMPTY_LINE     (line:  18, col:   1):	Space on empty line
-Error: SPACE_AFTER_KW       (line:  20, col:   5):	Missing space after keyword
-Error: SPC_BFR_PAR          (line:  20, col:  10):	Missing space before parenthesis (brace/bracket)
-Error: SPACE_BEFORE_FUNC    (line:  29, col:   5):	space before function name
-Error: SPACE_REPLACE_TAB    (line:  31, col:   8):	Found space when expecting tab
-Error: SPACE_REPLACE_TAB    (line:  32, col:   8):	Found space when expecting tab
-Error: SPACE_REPLACE_TAB    (line:  33, col:   8):	Found space when expecting tab
-Error: SPACE_REPLACE_TAB    (line:  34, col:   9):	Found space when expecting tab
-Error: MISALIGNED_VAR_DECL  (line:  34, col:  10):	Misaligned variable declaration
-Error: CONSECUTIVE_NEWLINES (line:  36, col:   1):	Consecutive newlines
-Error: EMPTY_LINE_FUNCTION  (line:  36, col:   1):	Empty line in function
-Error: SPACE_AFTER_KW       (line:  39, col:   5):	Missing space after keyword
-Error: SPC_BFR_PAR          (line:  39, col:  10):	Missing space before parenthesis (brace/bracket)
-Error: SPC_AFTER_OPERATOR   (line:  39, col:  45):	missing space after operator
-Error: CONSECUTIVE_SPC      (line:  41, col:   7):	Two or more consecutives spaces
-Error: SPACE_AFTER_KW       (line:  42, col:   5):	Missing space after keyword
-Error: SPC_BFR_PAR          (line:  42, col:  10):	Missing space before parenthesis (brace/bracket)
-Error: SPC_AFTER_OPERATOR   (line:  42, col:  45):	missing space after operator
-Error: SPACE_AFTER_KW       (line:  45, col:   5):	Missing space after keyword
-Error: SPC_BFR_PAR          (line:  45, col:   7):	Missing space before parenthesis (brace/bracket)
-Error: SPACE_AFTER_KW       (line:  47, col:   5):	Missing space after keyword
-Error: SPC_BFR_PAR          (line:  47, col:  10):	Missing space before parenthesis (brace/bracket)
-Error: SPC_AFTER_OPERATOR   (line:  47, col:  17):	missing space after operator
-Error: SPC_BFR_OPERATOR     (line:  47, col:  17):	missing space before operator
-Error: SPC_BFR_OPERATOR     (line:  47, col:  20):	missing space before operator
-Norme check failed
 $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strtrim.c main.c libft.a -o user_exe
 
 = Test 1 ===================================================
@@ -1209,13 +1129,8 @@ Diff OK :D
 = Test 7 ===================================================
 $> ./user_exe 07
 $> diff -U 3 user_output_test07 test07.output
---- /mnt/c/Users/valen/OneDrive/Documents/GitHub/42-Backup/libft-war-machine-master/tests/Part2_functions/ft_itoa/user_output_test07	2024-11-09 00:41:32.005082100 +0100$
-+++ /mnt/c/Users/valen/OneDrive/Documents/GitHub/42-Backup/libft-war-machine-master/tests/Part2_functions/ft_itoa/test07.output	2024-07-06 17:31:59.000000000 +0200$
-@@ -0,0 +1 @@$
-+-9874$
-\ No newline at end of file$
 
-Diff KO :(
+Diff OK :D
 = Test 8 ===================================================
 $> ./user_exe 08
 $> diff -U 3 user_output_test08 test08.output
@@ -1234,14 +1149,6 @@ Diff OK :D
 
 = ft_striteri.c ================================================================
 $> norminette ft_striteri.c | grep -E '(Error|Warning)'
-/mnt/c/Documents and Settings/valen/OneDrive/Documents/GitHub/42-Backup/libft/ft_striteri.c: Error!
-Error: PREPROC_NO_SPACE     (line:  13, col:   9):	Missing space after preprocessor directive
-Error: SPACE_BEFORE_FUNC    (line:  15, col:   5):	space before function name
-Error: SPACE_REPLACE_TAB    (line:  17, col:  17):	Found space when expecting tab
-Error: SPACE_AFTER_KW       (line:  20, col:   5):	Missing space after keyword
-Error: SPC_BFR_PAR          (line:  20, col:  10):	Missing space before parenthesis (brace/bracket)
-Error: BRACE_SHOULD_EOL     (line:  25, col:   1):	Expected newline after brace
-Norme check failed
 $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_striteri.c main.c libft.a -o user_exe
 
 = Test 1 ===================================================

@@ -13,7 +13,7 @@
 #include "libft.h"
 #include <stdio.h>
 
-static int ft_int_size(long n)
+static int	ft_int_size(long n)
 {
 	int	count;
 
@@ -46,15 +46,15 @@ static char	*ft_itoa_mallocu(int n)
 
 char	*ft_itoa(int n)
 {
-	int length;
-	char *string;
-	long nbr;
-	int i;
+	int		length;
+	char	*string;
+	long	nbr;
+	int		i;
 
 	length = ft_int_size(n);
 	nbr = n;
 	string = ft_itoa_mallocu(length);
-	if(nbr < 0)
+	if (nbr < 0)
 		nbr *= -1;
 	i = length - 1;
 	while (nbr != 0)
