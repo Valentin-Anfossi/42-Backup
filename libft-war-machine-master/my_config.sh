@@ -6,7 +6,7 @@
 
 #Edit the next line with the path of your libft project.
 #PATH_LIBFT=/home/vanfossi/Documents/GitHub/42_Backup/libft
-PATH_LIBFT='/mnt/c/Documents and Settings/valen/OneDrive/Documents/GitHub/42-Backup/libft'
+PATH_LIBFT=/home/vanfossi/42_backup/libft
 
 
 #If you use a relative path, don't put double quotes.
