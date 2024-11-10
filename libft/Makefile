@@ -20,30 +20,31 @@ SOURCES	= ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.
 			ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c \
 			ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c
 
-BONUSSRCS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back \
+BONUSSRCS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
+			ft_lstlast.c ft_lstadd_back.c \
 			ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c 
 
 OFILES	= $(SOURCES:.c=.o)
 
-BONUSOFILES = $(BONUS:.c=.o)
+BONUSOFILES = $(BONUSSRCS:.c=.o)
 
 CC	= gcc
 
-FLAGS	= -Wall -Wextra -Werror
+FLAGS	= -Wall -Wextra -Werror -I.
 
 all: $(NAME)
 
 $(NAME): $(OFILES)
-	$(CC) $(FLAGS) -c $(SOURCES) -I./
-	ar -rc $(NAME) $(OFILES)
+	$(CC) $(FLAGS) -c $(SOURCES)
+	ar rcs $(NAME) $(OFILES)
 
-bonus : ($BONUSOFILES)
-	$(CC) $(FLAGS) -c $(BONUSSRCS) -I./
-	ar -rc $(NAME) $(BONUSOFILES)
+bonus : $(BONUSOFILES) $(OFILES)
+	$(CC) $(FLAGS) -c $(BONUSSRCS) $(SOURCES)
+	ar rcs $(NAME) $(BONUSOFILES) $(OFILES)
 
 clean:
-	rm -f $(NAME)
 	rm -f $(OFILES)
+	rm -f $(BONUSOFILES)
 
 fclean: clean
 	rm -f $(NAME)
