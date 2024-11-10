@@ -6,7 +6,7 @@
 #    By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 04:36:42 by vanfossi          #+#    #+#              #
-#    Updated: 2024/11/07 04:36:42 by vanfossi         ###   ########.fr        #
+#    Updated: 2024/11/10 01:25:26 by vanfossi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,11 +20,12 @@ SOURCES	= ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.
 			ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c \
 			ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c
 
-BONUS = 
+BONUSSRCS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back \
+			ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c 
 
 OFILES	= $(SOURCES:.c=.o)
 
-OFILESBONUS = $(BONUS:.c=.o)
+BONUSOFILES = $(BONUS:.c=.o)
 
 CC	= gcc
 
@@ -36,9 +37,9 @@ $(NAME): $(OFILES)
 	$(CC) $(FLAGS) -c $(SOURCES) -I./
 	ar -rc $(NAME) $(OFILES)
 
-bonus : ($NAMEBONUS)
-
-$(BONUS): 
+bonus : ($BONUSOFILES)
+	$(CC) $(FLAGS) -c $(BONUSSRCS) -I./
+	ar -rc $(NAME) $(BONUSOFILES)
 
 clean:
 	rm -f $(NAME)

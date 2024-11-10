@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 21:54:36 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/05 21:54:36 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/11/10 01:16:04 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,18 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <stddef.h>
+//# include <stddef.h>
 
 # define SIZE_MAX  	2147483647
+# define INT_MAX  	2147483647
 # define INT_MIN	-2147483648
 // typedef unsigned long size_t;
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);

@@ -6,70 +6,54 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 15:33:10 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/08 13:34:01 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/11/10 00:36:50 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-static int	ft_int_size(long n)
+static int	ft_intlen(int nbr)
 {
-	int	count;
+	int	len;
 
-	count = 0;
-	if (n < 0)
+	len = 0;
+	if (nbr <= 0)
+		len = 1;
+	while (nbr != 0)
 	{
-		count ++;
-		n = -n;
+		nbr = nbr / 10;
+		len++;
 	}
-	if (n == 0)
-		count++;
-	while (n != 0)
-	{
-		n /= 10;
-		count++;
-	}
-	return (count);
-}
-
-static char	*ft_itoa_mallocu(int n)
-{
-	char	*string;
-
-	string = malloc((n + 1));
-	if (!string)
-		return (0);
-	string[0] = '0';
-	return (string);
+	return (len);
 }
 
 char	*ft_itoa(int n)
 {
-	int		length;
-	char	*string;
-	long	nbr;
-	int		i;
+	unsigned int	nbr;
+	int				len;
+	char			*string;
 
-	length = ft_int_size(n);
+	len = ft_intlen(n);
 	nbr = n;
-	string = ft_itoa_mallocu(length);
-	if (nbr < 0)
-		nbr *= -1;
-	i = length - 1;
-	while (nbr != 0)
+	if (n < 0)
+		nbr = -n;
+	string = malloc(sizeof(char) * len + 1);
+	if (!string)
+		return (NULL);
+	string[len--] = '\0';
+	while (len >= 0)
 	{
-		string[i] = ((nbr % 10) + 48);
-		nbr = nbr / 10;
-		i --;
+		string[len] = nbr % 10 + '0';
+		nbr /= 10;
+		len--;
 	}
 	if (n < 0)
 		string[0] = '-';
-	string[length] = 0;
 	return (string);
 }
 
-// int main(void)
-// {
-// 	printf("%s",ft_itoa(-98744));
+//int main(void)
+//{
+// 	printf("%s",ft_itoa(42));
 // }

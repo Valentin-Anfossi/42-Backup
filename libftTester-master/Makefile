@@ -1,7 +1,7 @@
 .DEFAULT_GOAL	:= a
 UTILS			= $(addprefix utils/, sigsegv.cpp color.cpp check.cpp leaks.cpp)
 PARENT_DIR		= $(shell dirname $(shell pwd))
-LIBFT_PATH		= /mnt/c/Documents\ and\ Settings/valen/OneDrive/Documents/GitHub/42-Backup/libft
+LIBFT_PATH		= /home/vanfossi/Documents/GitHub/42_Backup/libft
 TESTS_PATH		= tests/
 MANDATORY		= memset bzero memcpy memmove memchr memcmp strlen isalpha isdigit isalnum \
 				isascii isprint toupper tolower strchr strrchr strncmp strlcpy strlcat strnstr \

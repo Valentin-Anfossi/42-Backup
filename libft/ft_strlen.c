@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 11:46:23 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/08 16:05:25 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/11/10 00:39:50 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ size_t	ft_strlen(const char *s)
 	size_t	i;
 
 	i = 0;
-	while (s[i])
-		i ++;
+	if (s)
+	{
+		while (s[i])
+			i ++;
+	}
 	return (i);
 }
