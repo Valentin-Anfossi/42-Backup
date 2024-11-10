@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split2.c                                        :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 21:41:04 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/08 21:41:04 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/11/10 18:58:41 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,20 @@ static char	*ft_make_word(const char *s, int st, char c)
 	return (word);
 }
 
+static void	*ft_freeall(char **strs, int count)
+{
+	int	i;
+
+	i = 0;
+	while (i < count)
+	{
+		free(strs[i]);
+		i ++;
+	}
+	free(strs);
+	return (0);
+}
+
 char	**ft_split(const char *s, char c)
 {
 	char	**array;
@@ -68,7 +82,7 @@ char	**ft_split(const char *s, char c)
 		{
 			array[j] = ft_make_word(s, i, c);
 			if (!array[j])
-				return (0);
+				return (ft_freeall(array, j));
 			while (s[i] && s[i] != c)
 				i++;
 			j++;

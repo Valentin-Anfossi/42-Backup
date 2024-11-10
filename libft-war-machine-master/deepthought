@@ -3,7 +3,7 @@ $> hostname; uname -msr
 DESKTOP-83L05AK
 Linux 5.15.153.1-microsoft-standard-WSL2 x86_64
 $> date
-Sun Nov 10 16:54:24 CET 2024
+Sun Nov 10 18:55:52 CET 2024
 $> gcc --version
 gcc (Ubuntu 13.2.0-23ubuntu4) 13.2.0
 Copyright (C) 2023 Free Software Foundation, Inc.
@@ -107,7 +107,7 @@ gcc -Wall -Wextra -Werror -I. -c ft_lstmap.c -o ft_lstmap.o
 ar rcs libft.a ft_atoi.o ft_bzero.o ft_calloc.o ft_isalnum.o ft_isalpha.o ft_isascii.o ft_isdigit.o ft_isprint.o ft_itoa.o ft_memchr.o ft_memcmp.o ft_memcpy.o ft_memmove.o ft_memset.o ft_putchar_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_putstr_fd.o ft_split.o ft_strchr.o ft_strdup.o ft_striteri.o ft_strjoin.o ft_strlcat.o ft_strlcpy.o ft_strlen.o ft_strmapi.o ft_strncmp.o ft_strnstr.o ft_strrchr.o ft_strtrim.o ft_substr.o ft_tolower.o ft_toupper.o ft_lstnew.o ft_lstadd_front.o ft_lstsize.o ft_lstlast.o ft_lstadd_back.o ft_lstdelone.o ft_lstclear.o ft_lstiter.o ft_lstmap.o
 
 $> ls -la libft.a
--rw-rw-r-- 1 vanfossi vanfossi 66554 Nov 10 16:54 /home/vanfossi/42_backup/libft-war-machine-master/dirlibft/libft.a
+-rw-rw-r-- 1 vanfossi vanfossi 66818 Nov 10 18:55 /home/vanfossi/42_backup/libft-war-machine-master/dirlibft/libft.a
 
 = Part1_functions ==============================================================
 
@@ -1100,6 +1100,14 @@ Diff OK :D
 
 = ft_split.c ===================================================================
 $> norminette ft_split.c | grep -E '(Error|Warning)'
+/home/vanfossi/42_backup/libft/ft_split.c: Error!
+Error: SPACE_BEFORE_FUNC    (line:  54, col:  12):	space before function name
+Error: CONSECUTIVE_SPC      (line:  54, col:  37):	Two or more consecutives spaces
+Error: SPACE_EMPTY_LINE     (line:  57, col:   1):	Space on empty line
+Error: NO_SPC_BFR_OPR       (line:  85, col:  42):	extra space before operator
+Error: SPC_AFTER_OPERATOR   (line:  85, col:  42):	missing space after operator
+Error: NO_SPC_BFR_PAR       (line:  85, col:  45):	Extra space before parenthesis (brace/bracket)
+Norme check failed
 $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_split.c main.c libft.a -o user_exe
 
 = Test 1 ===================================================
@@ -1432,10 +1440,3 @@ Diff OK :D
 
 = ft_lstlast_bonus.c ===========================================================
 $> norminette ft_lstlast_bonus.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_lstlast.c main.c libft.a -o user_exe
-
-= Test 1 ===================================================
-$> ./user_exe 01
-$> diff -U 3 user_output_test01 test01.output
-
-Diff OK :D
