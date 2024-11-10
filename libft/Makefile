@@ -6,7 +6,7 @@
 #    By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 04:36:42 by vanfossi          #+#    #+#              #
-#    Updated: 2024/11/10 01:25:26 by vanfossi         ###   ########.fr        #
+#    Updated: 2024/11/10 16:40:01 by vanfossi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,12 +35,14 @@ FLAGS	= -Wall -Wextra -Werror -I.
 all: $(NAME)
 
 $(NAME): $(OFILES)
-	$(CC) $(FLAGS) -c $(SOURCES)
 	ar rcs $(NAME) $(OFILES)
 
-bonus : $(BONUSOFILES) $(OFILES)
-	$(CC) $(FLAGS) -c $(BONUSSRCS) $(SOURCES)
-	ar rcs $(NAME) $(BONUSOFILES) $(OFILES)
+bonus : $(OFILES) $(BONUSOFILES)
+	ar rcs $(NAME) $(OFILES) $(BONUSOFILES)
+
+#Compile .o < .c seulement si changes
+%.o: %.c
+	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OFILES)

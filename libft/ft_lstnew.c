@@ -6,18 +6,16 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 01:27:05 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/10 01:27:06 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/11/10 16:19:56 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
-#include <stdio.h>
 
-t_list *ft_lstnew(void *content)
+t_list	*ft_lstnew(void *content)
 {
-	t_list *newlst;
-	
+	t_list	*newlst;
+
 	newlst = malloc(sizeof(t_list));
 	if (!newlst)
 		return (0);
