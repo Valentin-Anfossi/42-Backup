@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 14:26:58 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/10 16:29:24 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/11/11 00:08:25 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ char	*ft_strchr(const char *s, int c)
 	int	i;
 
 	i = 0;
-	if (!ft_isascii(c))
-		return (0);
 	while (s[i])
 	{
 		if (s[i] == c)
