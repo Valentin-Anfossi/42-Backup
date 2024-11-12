@@ -13,10 +13,11 @@
 #include "libftprintf.h"
 #include <string.h>
 
-static char	*ft_form_sorting(char *form,va_list ptr,int i)
-{
+// static char	*ft_form_sorting(char *form,va_list ptr,int i)
+// {
+// 	return ("prout");
+// }
 
-}
 
 static int ft_form_count(char *form)
 {
@@ -55,6 +56,7 @@ int ft_printf(const char *form, ...)
 		i++;
 	}
 	va_end(ptr);
+	return (1)
 }
 
 int main (void)
