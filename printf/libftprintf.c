@@ -15,14 +15,18 @@
 
 static int ft_print_char(va_list ptr)
 {
-
+	char c;
+	c = va_arg(ptr, int);
+	write(1,&c,1);
+	return (2);
 }
 
 static int ft_print_void(va_list ptr)
 {
+	// Convertir en hexa
 	void *a;
 	a = va_arg(ptr,void*);
-	ft_putnbr_fd(&a,1);
+	ft_putnbr_fd((int)&a,1);
 	return(2);
 }
 
@@ -35,6 +39,36 @@ static int ft_print_dec(va_list ptr)
 static int ft_print_str(va_list ptr)
 {
 	ft_putstr_fd(va_arg(ptr,char*),1);
+	return (2);
+}
+
+static int ft_print_int(va_list ptr)
+{
+	ft_putnbr_fd(va_arg(ptr,int),1);
+	return (2);
+}
+
+static int ft_print_usign(va_list ptr)
+{
+	ft_putnbr_fd(va_arg(ptr, unsigned int),1);
+	return (2);
+}
+
+static int ft_print_hexlow(va_list ptr)
+{
+	return (2);
+}
+
+static int  ft_print_hexup(va_list ptr)
+{
+	return (2);
+}
+
+static int ft_print_perc(void)
+{
+	char c;
+	c = '%';
+	write(1, &c, 1);
 	return (2);
 }
 
@@ -56,17 +90,15 @@ int ft_printf(const char *form, ...)
 		if(form[i] == '%' && form[i+1] == 'd')
 			i += ft_print_dec(ptr);
 		if(form[i] == '%' && form[i+1] == 'i')
-		{}
+			i += ft_print_int(ptr);
 		if(form[i] == '%' && form[i+1] == 'u')
-		{}
+			i += ft_print_usign(ptr);
 		if(form[i] == '%' && form[i+1] == 'x')
-		{}
+			i += ft_print_hexlow(ptr);
 		if(form[i] == '%' && form[i+1] == 'X')
-		{}
+			i += ft_print_hexup(ptr);
 		if(form[i] == '%' && form[i+1] == '%')
-		{
-			
-		}
+			i += ft_print_perc();
 		else 
 			ft_putchar_fd(form[i],1);
 		i++;
@@ -78,7 +110,8 @@ int ft_printf(const char *form, ...)
 int main (void)
 {
 	void *vptr;
-	ft_printf("int:%d int:%d string:%s void:%p  oh", 10,256,"asdksladkas",vptr);
+	ft_printf("char:%c string:%s void:%p dec:%d int:%i udec:%u hexl:%x hexu:%X per:%%", 'B', "ceci est une string.", vptr, -420, 420, 420, 16,16);
 	printf("\n");
+	printf("char:%c string:%s void:%p dec:%d int:%i udec:%u hexl:%x hexu:%X per:%%", 'B', "ceci est une string.", vptr, -420, 420, 420, 16,16);
 	return (1);
 }
