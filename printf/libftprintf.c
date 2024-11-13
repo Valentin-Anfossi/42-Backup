@@ -11,56 +11,74 @@
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <string.h>
+#include "libft.h"
 
-// static char	*ft_form_sorting(char *form,va_list ptr,int i)
-// {
-// 	return ("prout");
-// }
-
-
-static int ft_form_count(char *form)
+static int ft_print_char(va_list ptr)
 {
-	int	i;
-	int count;
-	i = 0;
 
-	while(form[i])
-	{
-		if (form[i] == '%')
-		{
-			count ++;
-			i += 2;
-		}
-		else
-			i++;
-	}
-	return(count);
+}
+
+static int ft_print_void(va_list ptr)
+{
+	void *a;
+	a = va_arg(ptr,void*);
+	ft_putnbr_fd(&a,1);
+	return(2);
+}
+
+static int ft_print_dec(va_list ptr)
+{
+	ft_putnbr_fd(va_arg(ptr,signed int),1);
+	return (2);
+}
+
+static int ft_print_str(va_list ptr)
+{
+	ft_putstr_fd(va_arg(ptr,char*),1);
+	return (2);
 }
 
 int ft_printf(const char *form, ...)
 {
-	int	i;
-	int	formcount;
-	char	flag;
-	char * n;
 	va_list ptr;
-	i = 0;
-	
-	va_start(ptr,form);
-	formcount = ft_form_count((char *)form);
 
-	while(i < formcount)
+	va_start(ptr,form);
+	int i = 0;
+
+	while (i < ft_strlen(form))
 	{
-		printf("%d\n",va_arg(ptr,int));
+		if(form[i] == '%' && form[i+1] == 'c')
+			i += ft_print_char(ptr);
+		if(form[i] == '%' && form[i+1] == 's')
+			i += ft_print_str(ptr);
+		if(form[i] == '%' && form[i+1] == 'p')
+			i += ft_print_void(ptr);
+		if(form[i] == '%' && form[i+1] == 'd')
+			i += ft_print_dec(ptr);
+		if(form[i] == '%' && form[i+1] == 'i')
+		{}
+		if(form[i] == '%' && form[i+1] == 'u')
+		{}
+		if(form[i] == '%' && form[i+1] == 'x')
+		{}
+		if(form[i] == '%' && form[i+1] == 'X')
+		{}
+		if(form[i] == '%' && form[i+1] == '%')
+		{
+			
+		}
+		else 
+			ft_putchar_fd(form[i],1);
 		i++;
 	}
 	va_end(ptr);
-	return (1)
+	return (1);
 }
 
 int main (void)
 {
-	ft_printf("%d %d", 10,256,99);
+	void *vptr;
+	ft_printf("int:%d int:%d string:%s void:%p  oh", 10,256,"asdksladkas",vptr);
+	printf("\n");
 	return (1);
 }
