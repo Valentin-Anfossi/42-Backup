@@ -23,10 +23,12 @@ static int ft_print_char(va_list ptr)
 
 static int ft_print_void(va_list ptr)
 {
-	// Convertir en hexa
 	void *a;
+	unsigned long adr;
+
 	a = va_arg(ptr,void*);
-	ft_putnbr_fd((int)&a,1);
+	adr = (unsigned long)a;
+	ft_putnbr_fd(adr,1);
 	return(2);
 }
 
@@ -113,5 +115,6 @@ int main (void)
 	ft_printf("char:%c string:%s void:%p dec:%d int:%i udec:%u hexl:%x hexu:%X per:%%", 'B', "ceci est une string.", vptr, -420, 420, 420, 16,16);
 	printf("\n");
 	printf("char:%c string:%s void:%p dec:%d int:%i udec:%u hexl:%x hexu:%X per:%%", 'B', "ceci est une string.", vptr, -420, 420, 420, 16,16);
+	printf("\n");
 	return (1);
 }
