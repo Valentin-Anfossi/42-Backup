@@ -1,40 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 04:29:25 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/13 20:37:44 by vanfossi         ###   ########.fr       */
+/*   Created: 2024/11/06 20:59:49 by vanfossi          #+#    #+#             */
+/*   Updated: 2024/11/13 20:37:47 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
-	int	c;
+	int	i;
 
-	if (n != -2147483648)
+	i = 0;
+	if (s)
 	{
-		if (n < 0)
+		while (s[i])
 		{
-			c = '-';
-			write(fd, &c, 1);
-			ft_putnbr_fd (n * -1, fd);
+			write(fd, &s[i], 1);
+			i++;
 		}
-		else if (n > 9)
-		{
-			ft_putnbr_fd (n / 10, fd);
-			ft_putnbr_fd (n % 10, fd);
-		}
-		else
-		{
-			c = n + 48;
-			write(fd, &c, 1);
-		}
-	}
-	else
-	{
-		write(fd, "-2147483648", 11);
 	}
 }

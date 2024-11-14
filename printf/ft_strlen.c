@@ -1,17 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 21:57:36 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/12 22:06:23 by vanfossi         ###   ########.fr       */
+/*   Created: 2024/11/04 11:46:23 by vanfossi          #+#    #+#             */
+/*   Updated: 2024/11/13 20:39:26 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdarg.h>
-#include "libft.h"
-#include <string.h>
-#include <unistd.h>
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	if (s)
+	{
+		while (s[i])
+			i ++;
+	}
+	return (i);
+}
