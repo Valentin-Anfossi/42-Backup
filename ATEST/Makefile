@@ -6,7 +6,7 @@
 #    By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/14 05:21:17 by vanfossi          #+#    #+#              #
-#    Updated: 2024/11/15 20:52:19 by vanfossi         ###   ########.fr        #
+#    Updated: 2024/11/15 21:19:25 by vanfossi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ FLAGS	= -Wall -Wextra -Werror -I.
 
 all: $(NAME)
 
-$(LIBFT): $(LIBFT)
+$(LIBFT): 
 	make -C$(LIBFTPATH)
 
 $(NAME): $(OFILES) $(LIBFT)
