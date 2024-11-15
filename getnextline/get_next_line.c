@@ -15,17 +15,20 @@
 char *get_next_line(int fd)
 {
 	static int nline;
-	char *line;
+	char *buffer;
 
-	
-
+	buffer = malloc(20);
+	read(fd,buffer,20);
+	return (buffer);
 }
 
 int main(void)
 {
-	FILE fileptr;
-	fileptr = open("01", r);
+	int fd;
+	fd = open("./01", O_RDONLY);
 	char *result;
 
-	result = get_next_line(fileptr);
+	result = malloc(20);
+	result = get_next_line(fd);
+	printf("%s",result);
 }
