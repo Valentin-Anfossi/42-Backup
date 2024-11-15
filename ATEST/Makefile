@@ -6,7 +6,7 @@
 #    By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/14 05:21:17 by vanfossi          #+#    #+#              #
-#    Updated: 2024/11/15 21:19:25 by vanfossi         ###   ########.fr        #
+#    Updated: 2024/11/15 21:22:56 by vanfossi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,6 @@ clean:
 	make clean -C $(LIBFTPATH)
 
 fclean: clean
-	rm -f $(NAME) $(LIBFT)
+	rm -f $(NAME)
 
 re: fclean all
