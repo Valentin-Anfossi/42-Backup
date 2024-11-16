@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/10 12:17:03 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/10 16:18:41 by vanfossi         ###   ########.fr       */
+/*   Created: 2024/11/04 11:46:23 by vanfossi          #+#    #+#             */
+/*   Updated: 2024/11/15 23:05:01 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+size_t	ft_strlen(const char *s)
 {
-	new->next = *lst;
-	*lst = new;
+	size_t	i;
+
+	i = 0;
+	if (s)
+	{
+		while (s[i])
+			i ++;
+	}
+	return (i);
 }
