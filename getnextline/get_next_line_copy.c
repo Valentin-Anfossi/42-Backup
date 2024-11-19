@@ -11,56 +11,54 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#define BUFFERSIZE 5
 #include <stdio.h>
+#include <fcntl.h>
+#define BUFFER_SIZE 8
+
+static char *ft_getline(int fd, char *rest, char *buffer)
+{
+	char *line;
+	
+	read(fd, buffer, BUFFER_SIZE);
+	
+}
 
 char *get_next_line(int fd)
 {
-	static int nline;
+	static char	*rest;
 	char *buffer;
 	char *line;
-	int count;
-	int lcount;
-	int i;
-	int j;
 
-	i = 0;
-	j = 0;
-	line = malloc(5);
-	buffer = malloc(BUFFERSIZE);
-	read(fd,buffer,BUFFERSIZE);
-
-	j = 0;
-	while(buffer[j] != '\n' && buffer[j])
-	{
-		//printf("%c",buffer[j]);
-		line[i] = buffer[j];
-		j ++;
-		i ++;
-		if(j == BUFFERSIZE)
+	buffer = malloc(BUFFER_SIZE + 1);
+	if(!buffer)
+		return (0);
+	if (BUFFER_SIZE <= 0 || fd < 0)
 		{
-			read(fd,buffer,BUFFERSIZE);
-			j = 0;
-			continue;
+			free(buffer);
+			return(0);
 		}
-	}
-	nline++;
+	line = ft_getline(fd, rest, buffer);
+
+	if(!line)
+		return (0);
+	rest = ft_getrest(line);
+	free(buffer);
 	return (line);
 }
 
-int main(void)
+int	main(void)
 {
 	int fd;
-	fd = open("./01", O_RDONLY);
-	char *result;
+	fd = open("./01",O_RDONLY);
+	char *result = get_next_line(fd);
 
-	//result = malloc(500);
+	printf("%s",result);
 	result = get_next_line(fd);
-	printf("%s\n",result);
-	result = get_next_line(fd);
-	printf("%s\n",result);
-		result = get_next_line(fd);
-	printf("%s\n",result);
-		result = get_next_line(fd);
-	printf("%s\n",result);
+
+	printf("%s",result);
+	// while(result[i])
+	// {
+	// 	write(1,&result[i],1);
+	// 	i++;
+	// }
 }

@@ -14,3 +14,5 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdlib.h>
+
+int	gnl_strlcat(char *dst, const char *src, int size);
