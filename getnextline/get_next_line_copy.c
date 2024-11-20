@@ -15,9 +15,27 @@
 #include <fcntl.h>
 #define BUFFER_SIZE 8
 
-static char *ft_getline(int fd, char *rest, char *buffer)
+char *ft_linefrombuffer(int fd, char *rest, char *buffer)
 {
-	char *line;
+	char *temp;
+	int i;
+
+	i = 1;
+	while (i > 0)
+	{
+		i = read(fd,buffer,BUFFER_SIZE);
+		if(i == -1) /*ERREUR*/
+			return (0);
+		else if (i == 0) /*FIN DU FICHIER*/
+			break;
+		buffer[i] = 0;
+		if(!rest)
+			rest = ft_strdup("");
+		temp = rest;
+		rest = ft_strjoin(temp, buffer);
+		temp = 0;
+
+	}
 	
 	read(fd, buffer, BUFFER_SIZE);
 	

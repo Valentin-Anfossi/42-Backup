@@ -15,4 +15,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-int	gnl_strlcat(char *dst, const char *src, int size);
+static char	*ft_linefrombuffer(int fd, char *rest, char *buffer);
+char		*ft_strjoin(char const *s1, char const *s2);
+char		*ft_strchr(const char *s, int c);
+char	*ft_strdup(const char *s);
