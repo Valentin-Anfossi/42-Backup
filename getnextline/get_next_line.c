@@ -11,56 +11,93 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#define BUFFERSIZE 5
 #include <stdio.h>
+#include <fcntl.h>
+
+char *get_rest(char *line)
+{
+    char *rest;
+    int i = 0;
+
+    while (line[i] != '\n' && line[i] != '\0')
+        i++;
+    if (line[i] == '\0')
+        return (NULL);
+    rest = ft_substr(line, i + 1, ft_strlen(line) - i - 1);
+    if (!rest || *rest == '\0')
+    {
+        free(rest);
+        return (NULL);
+    }
+    line[i + 1] = '\0';
+    return (rest);
+}
+
+char *get_line_from_buffer(int fd, char *rest, char *buffer)
+{
+    int i;
+    char *temp;
+
+    i = 1;
+    while (i > 0)
+    {
+        i = read(fd, buffer, BUFFER_SIZE);
+        if (i == -1)
+            return (rest);
+        else if (i == 0)
+            break;
+        buffer[i] = '\0';
+        if (!rest)
+            rest = ft_strdup("");
+        temp = rest;
+        rest = ft_strjoin(temp, buffer);
+        free(temp);
+        if (ft_strchr(buffer, '\n'))
+            break;
+    }
+    return (rest);
+}
 
 char *get_next_line(int fd)
 {
-	static int nline;
-	char *buffer;
-	char *line;
-	int count;
-	int lcount;
-	int i;
-	int j;
+    static char *rest;
+    char *buffer;
+    char *line;
+
+    if (BUFFER_SIZE <= 0 || fd < 0 || !(buffer = malloc(BUFFER_SIZE + 1)))
+        return (NULL);
+    line = get_line_from_buffer(fd, rest, buffer);
+    free(buffer);
+    if (!line || *line == '\0')
+    {
+        free(line);
+        return (NULL);
+    }
+    rest = get_rest(line);
+    return (line);
+}
+
+int	ft_strlen(const char *s)
+{
+	int	i;
 
 	i = 0;
-	j = 0;
-	line = malloc(5);
-	buffer = malloc(BUFFERSIZE);
-	read(fd,buffer,BUFFERSIZE);
-
-	j = 0;
-	while(buffer[j] != '\n' && buffer[j])
-	{
-		//printf("%c",buffer[j]);
-		line[i] = buffer[j];
-		j ++;
+	while (s[i])
 		i ++;
-		if(j == BUFFERSIZE)
-		{
-			read(fd,buffer,BUFFERSIZE);
-			j = 0;
-			continue;
-		}
-	}
-	nline++;
-	return (line);
+	return (i);
 }
 
-int main(void)
-{
-	int fd;
-	fd = open("./01", O_RDONLY);
-	char *result;
+// int	main(void)
+// {
+// 	int fd;
+// 	fd = open("./01",O_RDONLY);
+// 	char *result = get_next_line(fd);
 
-	//result = malloc(500);
-	result = get_next_line(fd);
-	printf("%s\n",result);
-	result = get_next_line(fd);
-	printf("%s\n",result);
-		result = get_next_line(fd);
-	printf("%s\n",result);
-		result = get_next_line(fd);
-	printf("%s\n",result);
-}
+// 	printf("%s",result);
+// 	result = get_next_line(fd);
+
+// 	printf("%s",result);
+// 	result = get_next_line(fd);
+
+// 	printf("%s",result);
+// }

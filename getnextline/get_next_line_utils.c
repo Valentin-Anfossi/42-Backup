@@ -60,7 +60,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 char	*ft_strdup(const char *s)
 {
-	size_t		i;
+	int			i;
 	char		*dup;
 
 	i = 0;
@@ -94,4 +94,28 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)s + i);
 	}
 	return (0);
+}
+
+char	*ft_substr(char const *s, int start, int len)
+{
+	int	i;
+	int	j;
+	char	*str;
+
+	str = (char*)malloc(sizeof(*s) * (len + 1));
+	if (!str)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s[i])
+	{
+		if (i >= start && j < len)
+		{
+			str[j] = s[i];
+			j++;
+		}
+		i++;
+	}
+	str[j] = 0;
+	return (str);
 }

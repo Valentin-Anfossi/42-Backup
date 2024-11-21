@@ -1,0 +1,44 @@
+1. Function get_rest
+
+    Purpose: This function extracts the remaining part of the string after a newline (\n) character.
+    How it works:
+        It scans through the line to find the position of the first newline (\n) or the end of the string.
+        If no newline is found (i.e., the line ends without a newline), it returns NULL because there’s no "rest" to read.
+        If a newline is found, the function creates a new string (rest) starting from the character after the newline to the end of the string.
+        It truncates the original string (line) by setting the character right after the newline to \0 to mark the end of the current line.
+
+2. Function get_line_from_buffer
+
+    Purpose: This function reads data from a file into a buffer, appends it to the existing data (rest), and keeps reading until a newline is found or the end of the file is reached.
+    How it works:
+        The function reads from the file (fd) into the buffer of size BUFFER_SIZE.
+        If reading succeeds, the buffer content is added to rest, which holds the accumulated data.
+        The function continues to read and append to rest until it finds a newline (\n) or the end of the file (0 bytes read).
+        If an error occurs during reading, it frees the previously allocated memory and returns NULL.
+
+3. Function get_next_line
+
+    Purpose: This is the main function that you call to read one line at a time from the file.
+    How it works:
+        It initializes a buffer and reads the next part of the file using get_line_from_buffer.
+        It checks if any data was returned; if the line is empty or reading failed, it frees the memory and returns NULL.
+        Once a line is read, it updates the rest to store any remaining data after the line.
+        Finally, it returns the line that was just read.
+
+Key Concepts:
+
+    Static Variable rest: This is a static variable that keeps track of the leftover data between function calls. It's used to accumulate parts of the file across multiple reads (if a line is too long for the buffer).
+
+    Buffer: The buffer holds a temporary chunk of data read from the file. It’s used to gather data in pieces to handle large files that don't fit entirely in memory at once.
+
+    Handling Newlines: The function detects newlines to separate lines of text. The static rest ensures that data which didn’t fit in one read (before a newline) is carried over to the next read.
+
+Usage Example:
+
+If you call get_next_line repeatedly on a file, it will read each line in sequence:
+
+    The first call returns the first line.
+    The second call returns the next line.
+    It keeps going until all lines are read.
+
+In summary, this implementation reads one line at a time, manages memory efficiently by reusing the rest variable, and ensures proper handling of files with or without newlines at the end.
