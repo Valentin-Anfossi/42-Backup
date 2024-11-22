@@ -102,7 +102,7 @@ char	*ft_substr(char const *s, int start, int len)
 	int		j;
 	char	*str;
 
-	str = (char*)malloc(sizeof(*s) * (len + 1));
+	str = (char *)malloc (sizeof (*s) * (len + 1));
 	if (!str)
 		return (NULL);
 	i = 0;
