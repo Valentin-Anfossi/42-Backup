@@ -9,8 +9,7 @@ int test(char *str)
 
 int main(void)
 {	
-	char str[];
-	str = "pah";
+	char str[] = "pah";
 	printf("%s",str);
 	test(str);
 	printf("%s",str);

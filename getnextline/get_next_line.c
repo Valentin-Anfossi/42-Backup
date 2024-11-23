@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <unistd.h>
 
 char	*get_rest(char *line)
 {
@@ -78,17 +77,14 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-// int	main(void)
-// {
-// 	int fd;
-// 	fd = open("./01",O_RDONLY);
-// 	char *result = get_next_line(fd);
+int	main(void)
+{
+	int fd;
+	fd = open("./01",O_RDONLY);
+	char *result;
 
-// 	printf("%s",result);
-// 	result = get_next_line(fd);
-
-// 	printf("%s",result);
-// 	result = get_next_line(fd);
-
-// 	printf("%s",result);
-// }
+	while((result = get_next_line(fd)))
+	{
+		printf("%s",result);
+	}
+}

@@ -14,6 +14,9 @@
 # define GET_NEXT_LINE_H
 
 # include <stdlib.h>
+# include <fcntl.h>
+# include <unistd.h>
+# include <stdio.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10
@@ -22,7 +25,6 @@
 char	*get_next_line(int fd);
 char	*get_line_from_buffer(int fd, char *rest, char *buffer);
 char	*get_rest(char *line);
-void	truncate_line(char *line);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s);
