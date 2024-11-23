@@ -12,26 +12,6 @@
 
 #include "get_next_line.h"
 
-int	ft_strlcat(char *dst, const char *src, int size)
-{
-	int		i;
-	int		j;
-	char	*charsrc;
-
-	charsrc = (char *)src;
-	i = ft_strlen(dst);
-	j = 0;
-	if (size <= i)
-		return (size + ft_strlen(src));
-	while (charsrc[j] && i + j < (size - 1))
-	{
-		dst[i + j] = charsrc[j];
-		j++;
-	}
-	dst[i + j] = 0;
-	return (i + ft_strlen(src));
-}
-
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		i;
@@ -102,7 +82,7 @@ char	*ft_substr(char const *s, int start, int len)
 	int		j;
 	char	*str;
 
-	str = (char *)malloc (sizeof (*s) * (len + 1));
+	str = (char *)malloc(sizeof(*s) * (len + 1));
 	if (!str)
 		return (NULL);
 	i = 0;
@@ -118,4 +98,14 @@ char	*ft_substr(char const *s, int start, int len)
 	}
 	str[j] = 0;
 	return (str);
+}
+
+int	ft_strlen(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i ++;
+	return (i);
 }

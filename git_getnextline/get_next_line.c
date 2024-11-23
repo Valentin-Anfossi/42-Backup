@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <unistd.h>
 
 char	*get_rest(char *line)
 {
@@ -42,9 +41,7 @@ char	*get_line_from_buffer(int fd, char *rest, char *buffer)
 	while (i > 0)
 	{
 		i = read(fd, buffer, BUFFER_SIZE);
-		if (i == -1)
-			return (rest);
-		else if (i == 0)
+		if (i <= 0)
 			break ;
 		buffer[i] = 0;
 		if (!rest)
@@ -80,27 +77,14 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-int	ft_strlen(const char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i ++;
-	return (i);
-}
-
 // int	main(void)
 // {
-// 	int fd;
-// 	fd = open("./01",O_RDONLY);
-// 	char *result = get_next_line(fd);
+// 	int		fd;
+// 	char	*result;
 
-// 	printf("%s",result);
-// 	result = get_next_line(fd);
-
-// 	printf("%s",result);
-// 	result = get_next_line(fd);
-
-// 	printf("%s",result);
+// 	fd = open("./01", O_RDONLY);
+// 	while(result = get_next_line(fd))
+// 	{
+// 		printf("%s",result);
+// 	}
 // }
