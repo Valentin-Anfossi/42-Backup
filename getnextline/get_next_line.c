@@ -42,10 +42,8 @@ char	*get_line_from_buffer(int fd, char *rest, char *buffer)
 	while (i > 0)
 	{
 		i = read(fd, buffer, BUFFER_SIZE);
-		if (i == -1)
-			return (rest);
-		else if (i == 0)
-			break ;
+		if (i <= 0)
+			break;
 		buffer[i] = 0;
 		if (!rest)
 			rest = ft_strdup("");
@@ -78,16 +76,6 @@ char	*get_next_line(int fd)
 	}
 	rest = get_rest(line);
 	return (line);
-}
-
-int	ft_strlen(const char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i ++;
-	return (i);
 }
 
 // int	main(void)
