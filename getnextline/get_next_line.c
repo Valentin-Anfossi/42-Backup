@@ -42,7 +42,7 @@ char	*get_line_from_buffer(int fd, char *rest, char *buffer)
 	{
 		i = read(fd, buffer, BUFFER_SIZE);
 		if (i <= 0)
-			break;
+			break ;
 		buffer[i] = 0;
 		if (!rest)
 			rest = ft_strdup("");
@@ -77,14 +77,14 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-int	main(void)
-{
-	int fd;
-	fd = open("./01",O_RDONLY);
-	char *result;
+// int	main(void)
+// {
+// 	int		fd;
+// 	char	*result;
 
-	while((result = get_next_line(fd)))
-	{
-		printf("%s",result);
-	}
-}
+// 	fd = open("./01", O_RDONLY);
+// 	while(result = get_next_line(fd))
+// 	{
+// 		printf("%s",result);
+// 	}
+// }
