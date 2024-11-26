@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 04:52:02 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/25 15:46:49 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/11/26 11:05:21 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ typedef struct elem{
 
 //Utils
 void print_stacks(int *a, int *b, int argc);
-int *build_stack_a(int argc, char **argv);
-int *build_stack_b(int argc);
+elem **build_stack_a(int argc, char **argv);
+elem **build_stack_b(int argc);
+int stack_length(elem *stack);
 void clear_stack(int *stack);
 int error_message(int reason);
 

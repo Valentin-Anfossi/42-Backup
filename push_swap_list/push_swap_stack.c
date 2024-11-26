@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_sorting.c                                :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 13:33:34 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/25 14:20:33 by vanfossi         ###   ########.fr       */
+/*   Created: 2024/11/26 09:39:00 by vanfossi          #+#    #+#             */
+/*   Updated: 2024/11/26 11:01:48 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int pre_sorting(int *a, int *b,int size)
+int main(void)
 {
-	int count;
-	count = sorting_func_1(a,b,size);
-	return(-1);
+	elem **list;
+	
+}
+void stack_add(elem **stack, int val)
+{
+	elem *newel = malloc(sizeof (newel));
+	newel->val = val;
+	newel->prec = *stack;
+	*stack = newel;
 }
 
-int sorting_func_1(int *a, int *b, int size)
+void stack_length(elem *el)
 {
-	
+	int i;
+	i = 0;
+
+	while(el)
+	{
+		i ++;
+		el = el->prec;
+	}
+
+	return (i);
 }

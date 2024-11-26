@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 11:37:42 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/25 13:34:29 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/11/26 11:07:54 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,63 +14,26 @@
 
 void print_stacks(int *a, int *b, int argc)
 {
-	int i;
-	i = 0;
-	while(i < argc-1)
-	{
-		printf("%d ",a[i]);
-		i ++;
-	}
-	i = 0;
-	printf("\n");
-	while(i < argc-1)
-	{
-		printf("%d ",b[i]);
-		i ++;
-	}
-	printf("\n");
+
 }
-int *build_stack_a(int argc, char **argv)
+elem **build_stack_a(int argc, char **argv)
 {
 	int i;
-	int j;
-	int *a;
+	elem **stack;
 
 	i = 1;
-	j = 0;
-	a = malloc(sizeof(int) * argc-1);
 	while(argv[i] && i < argc)
 	{
-		a[j] = ft_atoi(argv[i]);
-		i++;
-		j++;
+		stack_add(stack, argv[i]);
+		i ++;
 	}
-	return (a);
+	return (stack);
 }
-int *build_stack_b(int argc)
+elem **build_stack_b(int argc)
 {
-	int i;
-	int *b;
-
-	i = 0;
-	b = malloc(sizeof(int) * argc-1);
-	while(i < argc)
-	{
-		b[i] = 0;
-		i++;
-	}
-	return (b);
 }
 void clear_stack(int *stack)
 {
-	int i;
-	i = 0;
-
-	while(stack[i])
-	{
-		stack[i] = 0;
-		i ++;
-	}
 }
 int error_message(int reason)
 {
