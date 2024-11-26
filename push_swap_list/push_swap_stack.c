@@ -1,22 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   push_swap_stack.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 09:39:00 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/26 11:01:48 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/11/26 15:41:19 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(void)
-{
-	elem **list;
-	
-}
 void stack_add(elem **stack, int val)
 {
 	elem *newel = malloc(sizeof (newel));
@@ -25,7 +20,7 @@ void stack_add(elem **stack, int val)
 	*stack = newel;
 }
 
-void stack_length(elem *el)
+int stack_length(elem *el)
 {
 	int i;
 	i = 0;

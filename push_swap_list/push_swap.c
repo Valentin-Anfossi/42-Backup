@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 11:18:38 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/25 14:13:45 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/11/26 15:49:04 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,11 @@
 
 int	main(int argc, char **argv)
 {
-	int *a;
-	int *b;
+	elem *stacka;
+	
+	stacka = build_stack_a(argc, argv);
+	printf("%d",stack_length(stacka));
 
-	if(argc == 1)
-		return (0);
-	if(!check_stack_digits(argc, argv))
-		return(error_message(1));
-	a = build_stack_a(argc,argv);
-	if(!check_stack_duplicates(a, argc-1))
-		return(error_message(2));
-	b = build_stack_b(argc);
-	pre_sorting(a,b,argc-1);
-	print_stacks(a,b,argc);
 }
 // NOTES :
 // Maybe better using struct with next/previous values ?

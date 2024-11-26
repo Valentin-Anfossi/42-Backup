@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 11:37:42 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/26 11:07:54 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/11/26 15:50:43 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,16 @@ void print_stacks(int *a, int *b, int argc)
 {
 
 }
-elem **build_stack_a(int argc, char **argv)
+elem *build_stack_a(int argc, char **argv)
 {
 	int i;
-	elem **stack;
+	elem *stack;
 
+	stack = NULL;
 	i = 1;
 	while(argv[i] && i < argc)
 	{
-		stack_add(stack, argv[i]);
+		stack_add(stack, ft_atoi(argv[i]));
 		i ++;
 	}
 	return (stack);
