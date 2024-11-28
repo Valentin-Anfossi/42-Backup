@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 07:45:02 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/27 20:17:19 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/11/28 07:16:46 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,11 @@ int rrr(elem **stacka, elem **stackb);
 elem *createElem(int val);
 void addElemOnTop(elem **stack, int val);
 int remElemOnTop(elem **stack);
-void printStack(elem *stack);
+void printStacks(elem *stacka, elem* stackb);
+elem* build_stacka(int argc, char**argv);
+
+//UTILS
+long int	ft_atoi_pushswap(const char *str);
+
+//CHECKS
+int stack_check(int argc, char **argv);
