@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 07:45:02 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/28 07:16:46 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/11/28 09:16:35 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,3 +46,4 @@ long int	ft_atoi_pushswap(const char *str);
 
 //CHECKS
 int stack_check(int argc, char **argv);
+int stack_check_duplicates(int *a);

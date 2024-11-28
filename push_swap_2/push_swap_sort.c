@@ -6,9 +6,13 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 08:18:49 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/28 08:18:58 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/11/28 11:19:07 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int selection_sort(elem *stacka, elem *stackb)
+{
+	
+}
