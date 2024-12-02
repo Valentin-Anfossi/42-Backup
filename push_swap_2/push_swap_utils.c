@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:16:10 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/28 07:21:28 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/02 11:41:46 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ elem* createElem(int val)
 	newElem->val = val;
 	newElem->prev = NULL;
 	newElem->next = NULL;
+	newElem->index = 0;
 	return (newElem);
 }
 void addElemOnTop(elem** stack, int val)
@@ -78,4 +79,19 @@ elem* build_stacka(int argc, char**argv)
 		i ++;
 	}
 	return (stack);
+}
+
+int length_stack(elem *stack)
+{
+	elem *tmp;
+	int len;
+
+	len = 0;
+	tmp = stack;
+	while(tmp != NULL)
+	{
+		len ++;
+		tmp = tmp->next;
+	}
+	return (len);
 }

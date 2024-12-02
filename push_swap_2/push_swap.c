@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 07:44:30 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/28 11:18:13 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/11/30 16:19:40 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,12 @@ int main(int argc, char **argv)
 		return(1);
 	}
 	stacka = build_stacka(argc,argv);
-	printStacks(stacka,stackb);
-	pb(&stacka,&stackb);
-	pb(&stacka,&stackb);
-	printStacks(stacka,stackb);
+	// printStacks(stacka,stackb);
+	// pb(&stacka,&stackb);
+	// pb(&stacka,&stackb);
+	// printStacks(stacka,stackb);
+	selection_sort(&stacka,&stackb);
+	// ra(&stacka);
+	// printStacks(stacka,stackb);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 07:45:02 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/28 09:16:35 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/02 23:11:32 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,14 @@ typedef struct elem{
 	struct elem* next;
 	struct elem* prev;
 	int val;
-} elem;
+	int index;
+	int costa;
+	int costb;
+} elem ;
+
+typedef struct t_ops{
+	int count;
+} t_ops;
 
 //LOGIC FUNCTIONS
 int sa(elem **stack);
@@ -31,8 +38,12 @@ int pb(elem **stacka, elem **stackb);
 int ra(elem **stacka);
 int rb(elem **stackb);
 int rr(elem *stacka, elem *stackb);
+int rra(elem **stacka);
 int rrb(elem **stackb);
 int rrr(elem **stacka, elem **stackb);
+
+//SORTING FUNCS
+int selection_sort(elem **stacka, elem **stackb);
 
 //STACK UTILS
 elem *createElem(int val);
@@ -40,6 +51,7 @@ void addElemOnTop(elem **stack, int val);
 int remElemOnTop(elem **stack);
 void printStacks(elem *stacka, elem* stackb);
 elem* build_stacka(int argc, char**argv);
+int length_stack(elem *stack);
 
 //UTILS
 long int	ft_atoi_pushswap(const char *str);

@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 19:34:36 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/27 19:38:03 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/02 12:03:16 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int sa(elem **stack)
 	elem2->prev = NULL;
 	elem2->next = elem1;
 	elem1->prev = elem2;
+	printf("sa\n");
 	return(0);
 }
 //LA MEME MAIS SAPPELLE SB (PARCE QUE)
@@ -46,13 +47,17 @@ int sb(elem **stack)
 	elem2->prev = NULL;
 	elem2->next = elem1;
 	elem1->prev = elem2;
+	printf("sb\n");
 	return (0);
 }
 //A TON AVIS
 int ss(elem **stacka, elem** stackb)
 {
 	if(sa(stacka) && sb(stackb))
+	{
+		printf("ss\n");
 		return (0);
+	}
 	return(1);
 }
 //PUSH A (PUT FIRST B TO TOP OF A)
@@ -71,6 +76,7 @@ int pa(elem **stacka, elem **stackb)
         (*stacka)->prev = topb;
     *stacka = topb;
     topb->prev = NULL;
+	printf("pa\n");
     return 1;
 }
 //PUSH B (PUT FIRST A ON TOP OF B)
@@ -89,6 +95,7 @@ int pb(elem **stacka, elem **stackb)
         (*stackb)->prev = topa;
     *stackb = topa;
     topa->prev = NULL;
+	printf("pb\n");
     return 1;
 }
 //ROTATE A (SHIFTS UP ALL BY 1, FIRST BECOMES LAST)
@@ -108,6 +115,7 @@ int ra(elem**stacka)
 	*stacka = first->next;
 	last->next = first;
 	first->next = NULL;
+	printf("ra\n");
 	return(1);
 }
 //ROTATE B (SHIFTS UP ALL BY 1, FIRST BECOMES LAST)
@@ -127,6 +135,7 @@ int rb(elem**stackb)
 	*stackb = first->next;
 	last->next = first;
 	first->next = NULL;
+	printf("rb\n");
 	return(1);
 }
 //ROTATE BOTH
@@ -134,7 +143,10 @@ int rr(elem *stacka, elem *stackb)
 {
 	if(ra(&stacka))
 		if(rb(&stackb))
+		{
+			printf("rr\n");
 			return (1);
+		}
 	return (0);
 }
 //Reverse rotate A (SHIFTS DOWN ALL BY 1, LAST BECOMES FIRST)
@@ -157,6 +169,7 @@ int rra(elem **stacka)
 	last -> next = first;
 	first -> prev = last;
 	*stacka = last;
+	printf("rra\n");
 	return(1);
 }
 //Reverse rotate B (SHIFTS DOWN ALL BY 1, LAST BECOMES FIRST)
@@ -179,12 +192,16 @@ int rrb(elem **stackb)
 	last -> next = first;
 	first -> prev = last;
 	*stackb = last;
+	printf("rrb\n");
 	return(1);
 }
 //Reverse rotate both
 int rrr(elem **stacka, elem **stackb)
 {
 	if(rra(stacka) && rrb(stackb))
+	{
+		printf("rrr\n");
 		return (1);
+	}
 	return(0);
 }
