@@ -5,49 +5,41 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 04:52:02 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/25 15:46:49 by vanfossi         ###   ########.fr       */
+/*   Created: 2024/11/27 07:45:02 by vanfossi          #+#    #+#             */
+/*   Updated: 2024/12/03 21:31:30 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#define STACKSIZE 15
-
 #include <stdio.h>
-#include <time.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include "./libft/libft.h"
 
-//Struct
-typedef struct elem{
+//s_stack TYPEDEF
+typedef struct t_stack{
+	struct t_stack* next;
+	struct t_stack* prev;
 	int val;
-	struct elem *prec;
-	struct elem *next;
-}elem;
+	int index;
+	int costa;
+	int costb;
+} s_stack ;
 
-//Utils
-void print_stacks(int *a, int *b, int argc);
-int *build_stack_a(int argc, char **argv);
-int *build_stack_b(int argc);
-void clear_stack(int *stack);
-int error_message(int reason);
+//ARGS_UTILS.C
+int *process_args(int argc, char **argv);
+int args_check_duplicates(int *a);
+int args_check(int argc, char **argv);
+long int	ft_atoi_pushswap(const char *str);
 
-//Checks
-int check_stack_digits(int argc, char** argv);
-int check_stack_duplicates(int *a, int size);
+//PRINT_ERROR.C
+int print_error(void);
 
-//Sorting
-int pre_sorting(int *a, int *b,int size);
-int sorting_func_1(int *a, int *b, int size);
-void sa(int *a, int *b);
+//STACK_UTILS.C
+s_stack *stack_build(int *arg_array, int argc);
+s_stack *stack_create_element(int val);
+void stack_add_to_top(s_stack *element, s_stack **stack);
 
-// Logic Functions
-void sb(int *a, int *b);
-void ss(int *a, int *b);
-void pa(int *a, int *b);
-void pb(int *a, int *b);
-void ra(int *a, int *b);
-void rb(int *a, int *b);
-void rr(int *a, int *b);
-void rra(int *a, int *b);
-void rrb(int *a, int *b);
-void rrr(int*a , int *b);
+// !!DEBUG!!
+void debug_print_elem(s_stack *a);
+void debug_print_array(int *ar, int arlen);
+void debug_print_stack(s_stack *stack);
