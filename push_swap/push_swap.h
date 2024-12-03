@@ -38,6 +38,7 @@ int print_error(void);
 s_stack *stack_build(int *arg_array, int argc);
 s_stack *stack_create_element(int val);
 void stack_add_to_top(s_stack **element, s_stack **stack);
+void stack_circularize(s_stack **stack);
 
 // !!DEBUG!!
 void debug_print_elem(s_stack *a);

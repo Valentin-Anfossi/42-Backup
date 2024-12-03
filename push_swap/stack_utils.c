@@ -28,13 +28,24 @@ s_stack *stack_build(int *arg_array, int argc)
 		stack_add_to_top(&new,&stack);
 		i++;
 	}
-	
+	stack_circularize(&stack);
 	return(stack);
 }
 // MAKE STACK CIRCULAR (DUH)
 void stack_circularize(s_stack **stack)
 {
-	
+	s_stack *start;
+	s_stack *temp;
+	s_stack *end;
+
+	start = *stack;
+	while(temp)
+	{
+		temp = temp -> next;
+	}
+	end = temp;
+	(*stack)->prev = end;
+	return ;
 }
 
 s_stack *stack_create_element(int val)
