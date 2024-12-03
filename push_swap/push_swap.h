@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 07:45:02 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/12/03 21:31:30 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/03 22:32:54 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int print_error(void);
 //STACK_UTILS.C
 s_stack *stack_build(int *arg_array, int argc);
 s_stack *stack_create_element(int val);
-void stack_add_to_top(s_stack *element, s_stack **stack);
+void stack_add_to_top(s_stack **element, s_stack **stack);
 
 // !!DEBUG!!
 void debug_print_elem(s_stack *a);

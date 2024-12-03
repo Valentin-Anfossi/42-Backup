@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 17:17:56 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/12/03 21:40:41 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/03 22:33:47 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void debug_print_elem(s_stack *a)
 	printf("Index : %d\n",a->index);
 	printf("Value : %d\n",a->val);
 	if(a->prev)
-		printf("Prev  : %d\n",(a->next)->val);
+		printf("Prev  : %d\n",(a->prev)->val);
 	else
 		printf("Prev  : NULL\n");
 	if(a->next)
