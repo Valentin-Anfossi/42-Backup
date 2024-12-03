@@ -39,13 +39,14 @@ void stack_circularize(s_stack **stack)
 	s_stack *end;
 
 	start = *stack;
-	while(temp)
+	temp = *stack;
+	end = *stack;
+	while(end->next)
 	{
-		temp = temp -> next;
+		end = end -> next;
 	}
-	end = temp;
 	(*stack)->prev = end;
-	return ;
+	end -> next = *stack;
 }
 
 s_stack *stack_create_element(int val)

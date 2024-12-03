@@ -27,6 +27,7 @@ void debug_print_elem(s_stack *a)
 	else
 		printf("Next  : NULL\n");
 }
+
 // PRINT ARRAY (what did you expect)
 void debug_print_array(int *ar, int arlen)
 {
@@ -41,6 +42,7 @@ void debug_print_array(int *ar, int arlen)
 	}
 	printf("\n");
 }
+
 //PRINT STACK IN ORDER
 void debug_print_stack(s_stack *stack)
 {
