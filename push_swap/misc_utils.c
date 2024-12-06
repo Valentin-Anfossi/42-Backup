@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   misc_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/27 07:44:30 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/12/06 04:48:45 by vanfossi         ###   ########.fr       */
+/*   Created: 2024/12/05 18:48:49 by vanfossi          #+#    #+#             */
+/*   Updated: 2024/12/06 00:48:38 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-//MAKE STACK & THEN!! MAKE IT CIRCULAR
-int main(int argc, char **argv)
+int ft_abs(int i)
 {
-	int *arg_array;
-	s_stack *a;
-	s_stack *b;
-
-	a = NULL;
-	b = NULL;
-	if(!args_check(argc, argv) || argc <= 1)
-		return(print_error());
-	arg_array = process_args(argc, argv);
-	a = stack_build(arg_array,argc);
-	stack_index(&a);
-	stack_index(&b);
-	main_sort(&a,&b);
-	free(a);
-	free(b);
+    if (i < 0)
+        return (-i);
+    return (i);
 }

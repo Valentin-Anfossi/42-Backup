@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 17:17:56 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/12/03 22:33:47 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/06 04:27:01 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ void debug_print_elem(s_stack *a)
 		printf("Next  : %d\n",(a->next)->val);
 	else
 		printf("Next  : NULL\n");
+	if(a->match)
+		printf("Match : %d\n",(a->match)->val);
+	else
+		printf("Match : NULL\n");
+	printf("Costa : %d\n",(a->cost_a));
+	printf("Costb : %d\n",(a->cost_b));
 }
 
 // PRINT ARRAY (what did you expect)
@@ -55,8 +61,11 @@ void debug_print_stack(s_stack *stack)
 		debug_print_elem(stack);
 	}
 	else
+	{
+		printf("// EMPTY STACK //\n");
 		return ;
-	if(stack->next)
+	}
+	if(stack->next && stack->next != starting_elem)
 	{
 		stack = stack->next;
 		while(stack != starting_elem && stack)

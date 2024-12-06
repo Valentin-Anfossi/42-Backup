@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:20:49 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/12/03 18:01:56 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/06 04:51:08 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int *process_args(int argc, char **argv)
 {
 	int i;
 	int *args;
-	
+
 	i = 1;
-	if(args_check)
+	if(args_check(argc, argv))
 	{
 		args = malloc(sizeof(int)*argc-1);
 		while(i < argc)
@@ -41,7 +41,7 @@ int args_check(int argc, char **argv)
 	int j;
 	long int n;
 	int *a;
-	
+
 	i = 1;
 	j = 0;
 	a = malloc(sizeof(int) * argc - 1);
@@ -91,7 +91,7 @@ int args_check_duplicates(int *a)
 		count = 0;
 		i++;
 	}
-	return (1);	
+	return (1);
 }
 
 //MODIFIED ATOI FROM LIBFT
