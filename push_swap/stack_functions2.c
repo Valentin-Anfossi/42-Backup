@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 01:03:23 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/12/06 04:47:39 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/06 23:27:46 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 // pb (push b): Take the first element at the top of a
 // Do nothing if a is empty.
-int pb(s_stack **a, s_stack **b)
+int pb(t_stack **a, t_stack **b)
 {
-	s_stack *tmp_a;
+	t_stack *tmp_a;
 	
 	if(*a == NULL)
 		return(0);
@@ -37,7 +37,7 @@ int pb(s_stack **a, s_stack **b)
 }
 // IDK WHOS THE SMOOTHBRAIN WHO DECIDED 25 LINES
 // BUT IM HOPING HE EAT SPAGHETTI A LA DIARRHEA
-void pb_helper(s_stack **b, s_stack *tmp_a)
+void pb_helper(t_stack **b, t_stack *tmp_a)
 {
 	if(*b == NULL)
 	{
@@ -56,7 +56,7 @@ void pb_helper(s_stack **b, s_stack *tmp_a)
 }
 
 // rr : ra and rb at the same time.
-int rr(s_stack **a, s_stack **b)
+int rr(t_stack **a, t_stack **b)
 {
 	*a = (*a)->next;
 	*b = (*b)->next;

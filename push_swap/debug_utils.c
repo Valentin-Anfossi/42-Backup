@@ -6,42 +6,41 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 17:17:56 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/12/06 04:27:01 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/06 23:27:46 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-void debug_print_elem(s_stack *a)
+void	debug_print_elem(t_stack *a)
 {
 	printf(" -- ELEM -- \n");
 	printf("Index : %d\n",a->index);
 	printf("Value : %d\n",a->val);
-	if(a->prev)
+	if (a->prev)
 		printf("Prev  : %d\n",(a->prev)->val);
 	else
 		printf("Prev  : NULL\n");
-	if(a->next)
+	if (a->next)
 		printf("Next  : %d\n",(a->next)->val);
 	else
 		printf("Next  : NULL\n");
-	if(a->match)
+	if (a->match)
 		printf("Match : %d\n",(a->match)->val);
 	else
 		printf("Match : NULL\n");
-	printf("Costa : %d\n",(a->cost_a));
-	printf("Costb : %d\n",(a->cost_b));
+	printf("Costa : %d\n", (a->cost_a));
+	printf("Costb : %d\n", (a->cost_b));
 }
 
 // PRINT ARRAY (what did you expect)
 void debug_print_array(int *ar, int arlen)
 {
-	int i;
-	i = 0;
+	int	i;
 
+	i = 0;
 	printf("\nARRAY\n");
-	while(i < arlen)
+	while (i < arlen)
 	{
 		printf("{%d}",ar[i]);
 		i ++;
@@ -50,12 +49,12 @@ void debug_print_array(int *ar, int arlen)
 }
 
 //PRINT STACK IN ORDER
-void debug_print_stack(s_stack *stack)
+void	debug_print_stack(t_stack *stack)
 {
-	s_stack *starting_elem;
-	
+	t_stack	*starting_elem;
+
 	starting_elem = stack;
-	if(stack)
+	if (stack)
 	{
 		printf("// PRINTING STACK //\n");
 		debug_print_elem(stack);
@@ -65,14 +64,14 @@ void debug_print_stack(s_stack *stack)
 		printf("// EMPTY STACK //\n");
 		return ;
 	}
-	if(stack->next && stack->next != starting_elem)
+	if (stack->next && stack->next != starting_elem)
 	{
 		stack = stack->next;
-		while(stack != starting_elem && stack)
+		while (stack != starting_elem && stack)
 		{
 			debug_print_elem(stack);
 			stack = stack->next;
-		}	
+		}
 	}
 	printf("// END  OF  STACK //\n");
 	return ;

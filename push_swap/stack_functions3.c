@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 01:04:05 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/12/06 04:29:34 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/06 23:27:46 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // ra (rotate a): Shift up all elements of stack a by 1.
 // The first element becomes the last one.
-int ra(s_stack **a)
+int ra(t_stack **a)
 {
 	if(*a != NULL)
 	{
@@ -28,7 +28,7 @@ int ra(s_stack **a)
 
 // rb (rotate b): Shift up all elements of stack b by 1.
 // The first element becomes the last one.
-int rb(s_stack **b)
+int rb(t_stack **b)
 {
     *b = (*b)->next;
 	printf("rb\n");
@@ -36,7 +36,7 @@ int rb(s_stack **b)
 }
 // rra (reverse rotate a): Shift down all elements of stack a by 1.
 // The last element becomes the first one.
-int rra(s_stack **a)
+int rra(t_stack **a)
 {
     *a = (*a)->prev;
 	printf("rra\n");
@@ -45,14 +45,14 @@ int rra(s_stack **a)
 
 // rrb (reverse rotate b): Shift down all elements of stack b by 1.
 // The last element becomes the first one.
-int rrb(s_stack **b)
+int rrb(t_stack **b)
 {
 	printf("rrb\n");
 	*b = (*b)->prev;
 	return (1);
 }
 
-int rrr(s_stack **a, s_stack **b)
+int rrr(t_stack **a, t_stack **b)
 {
     *a = (*a)->prev;
 	*b = (*b)->prev;

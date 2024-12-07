@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 23:38:58 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/12/06 04:21:02 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/06 23:27:46 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 // sa (swap a): Swap the first 2 elements at the top of stack a.
 // Do nothing if there is only one or no elements.
-int sa(s_stack **a, int print)
+int sa(t_stack **a, int print)
 {
-    s_stack *tmp;
-	s_stack *tmp_2;
+    t_stack *tmp;
+	t_stack *tmp_2;
 	
 	if(*a == NULL || (*a)->next == NULL)
 		return(0);
@@ -39,10 +39,10 @@ int sa(s_stack **a, int print)
 
 // sb (swap b): Swap the first 2 elements at the top of stack b.
 // Do nothing if there is only one or no elements.
-int sb(s_stack **b, int print)
+int sb(t_stack **b, int print)
 {
-    s_stack *tmp;
-	s_stack *tmp_2;
+    t_stack *tmp;
+	t_stack *tmp_2;
 	
 	if(*b == NULL || (*b)->next == NULL)
 		return(0);
@@ -63,7 +63,7 @@ int sb(s_stack **b, int print)
 }
 
 // ss : sa and sb at the same time.
-int ss(s_stack **a, s_stack **b)
+int ss(t_stack **a, t_stack **b)
 {
 	if(sa(a,0) && sb(b,0))
 	{
@@ -75,9 +75,9 @@ int ss(s_stack **a, s_stack **b)
 
 // pa (push a): Take the first element at the top of b and put it at the top of a.
 // Do nothing if b is empty.
-int pa(s_stack **a, s_stack **b)
+int pa(t_stack **a, t_stack **b)
 {
-	s_stack *tmp_b;
+	t_stack *tmp_b;
 	
 	if(*b == NULL)
 		return(0);
@@ -97,7 +97,7 @@ int pa(s_stack **a, s_stack **b)
 	return(1);	
 }
 // F U NORMINETTE
-void pa_helper(s_stack**a, s_stack *tmp_b)
+void pa_helper(t_stack**a, t_stack *tmp_b)
 {
 	if(*a == NULL)
 	{

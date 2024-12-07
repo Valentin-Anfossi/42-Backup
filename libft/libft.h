@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 21:54:36 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/11/10 01:16:04 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/07 01:52:11 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 //# include <stddef.h>
 
 # define SIZE_MAX  	2147483647
@@ -74,5 +75,41 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+// ft_printf
+
+int		ft_printf(const char *form, ...);
+char	*ft_itohex(unsigned long nb);
+int		ft_print_hexlow(va_list ptr);
+int		ft_print_hexup(va_list ptr);
+int		ft_print_char(va_list ptr);
+int		ft_print_void(va_list ptr);
+int		ft_print_dec(va_list ptr);
+int		ft_print_str(va_list ptr);
+int		ft_print_int(va_list ptr);
+int		ft_print_usign(va_list ptr);
+int		ft_print_perc(void);
+int		ft_putunbr(unsigned int n);
+int		ft_get_uintlen(unsigned int nb);
+int		ft_get_intlen(int nb);
+
+// ft_fprintf
+
+int		ft_fprintf(int fd, const char *form, ...);
+int		ft_fprintf_parsing(char *form, va_list ptr, int fd);
+int		ft_fprint_char(va_list ptr, int fd);
+int		ft_fprint_str(va_list ptr, int fd);
+int		ft_fprint_void(va_list ptr, int fd);
+int		ft_fprint_dec(va_list ptr, int fd);
+int		ft_fprint_int(va_list ptr, int fd);
+int		ft_fprint_usign(va_list ptr, int fd);
+int		ft_fprint_hexlow(va_list ptr, int fd);
+int		ft_fprint_hexup(va_list ptr, int fd);
+int		ft_fprint_perc(int fd);
+int		ft_fget_intlen(int nb);
+int		ft_fget_uintlen(unsigned int nb);
+char	*ft_fitohex(unsigned long nb);
+int		ft_fputunbr(unsigned int n, int fd);
+int		ft_fprintf_types(char *form, va_list ptr, int i, int fd);
 
 #endif
