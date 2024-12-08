@@ -6,22 +6,24 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 21:54:36 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/12/07 01:52:11 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/07 19:27:09 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
-//# include <stddef.h>
+# include <fcntl.h>
+# include <stdio.h>
 
 # define SIZE_MAX  	2147483647
 # define INT_MAX  	2147483647
 # define INT_MIN	-2147483648
-// typedef unsigned long size_t;
 
 typedef struct s_list
 {
@@ -111,5 +113,11 @@ int		ft_fget_uintlen(unsigned int nb);
 char	*ft_fitohex(unsigned long nb);
 int		ft_fputunbr(unsigned int n, int fd);
 int		ft_fprintf_types(char *form, va_list ptr, int i, int fd);
+
+// get_next_line
+
+char	*get_next_line(int fd);
+char	*get_line_from_buffer(int fd, char *rest, char *buffer);
+char	*get_rest(char *line);
 
 #endif
