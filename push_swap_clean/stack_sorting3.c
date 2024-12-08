@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 04:30:59 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/12/06 23:47:28 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/08 03:06:36 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	sort_mean(t_stack **a, t_stack **b)
 	{
 		mean = sort_get_mean(a);
 		if ((*a)->index < mean)
-			pb(a, b);
+			pb(a, b, 1);
 		else
-			ra(a);
+			ra(a, 1);
 	}
 	return ;
 }

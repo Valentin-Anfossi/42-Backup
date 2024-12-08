@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 01:03:23 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/12/07 01:59:23 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/08 03:03:41 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // pb (push b): Take the first element at the top of a
 // Do nothing if a is empty.
-int	pb(t_stack **a, t_stack **b)
+int	pb(t_stack **a, t_stack **b, int print)
 {
 	t_stack	*tmp_a;
 
@@ -32,7 +32,8 @@ int	pb(t_stack **a, t_stack **b)
 		(*a)->prev->next = *a;
 	}
 	pb_helper(b, tmp_a);
-	ft_printf("pb\n");
+	if (print)
+		ft_printf("pb\n");
 	return (1);
 }
 
@@ -57,10 +58,11 @@ void	pb_helper(t_stack **b, t_stack *tmp_a)
 }
 
 // rr : ra and rb at the same time.
-int	rr(t_stack **a, t_stack **b)
+int	rr(t_stack **a, t_stack **b, int print)
 {
 	*a = (*a)->next;
 	*b = (*b)->next;
-	ft_printf("rr\n");
+	if (print)
+		ft_printf("rr\n");
 	return (1);
 }

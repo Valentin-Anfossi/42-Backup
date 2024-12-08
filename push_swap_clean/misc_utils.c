@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 18:48:49 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/12/06 23:53:47 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/07 17:35:34 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,22 @@ long int	ft_atoi_pushswap(const char *str)
 		i++;
 	}
 	return (nb * n);
+}
+
+void	free_stack(t_stack **stack)
+{
+	t_stack	*tmp;
+	t_stack	*next;
+
+	if (!stack || !*stack)
+		return ;
+	tmp = *stack;
+	tmp -> prev -> next = NULL;
+	while (tmp)
+	{
+		next = tmp->next;
+		free(tmp);
+		tmp = next;
+	}
+	*stack = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 18:23:34 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/12/07 02:36:57 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/08 03:05:32 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,18 +100,18 @@ void	sort_three(t_stack **a)
 		if ((*a)-> val > mid && mid > bot)
 		{
 			sa(a, 1);
-			rra(a);
+			rra(a, 1);
 		}
 		if ((*a)-> val > bot && bot > mid)
-			ra(a);
+			ra(a, 1);
 		if (mid > (*a)-> val && (*a)-> val > bot)
-			rra(a);
+			rra(a, 1);
 		if (mid > bot && bot > (*a)-> val)
 			sa(a, 1);
 		if (bot > (*a)-> val && (*a)-> val > mid)
 		{
 			sa(a, 1);
-			ra(a);
+			ra(a, 1);
 		}
 	}
 }

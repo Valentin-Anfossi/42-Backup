@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 01:04:05 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/12/07 01:59:23 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/08 03:04:43 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 // ra (rotate a): Shift up all elements of stack a by 1.
 // The first element becomes the last one.
-int	ra(t_stack **a)
+int	ra(t_stack **a, int print)
 {
 	if (*a != NULL)
 	{
 		*a = (*a)->next;
-		ft_printf("ra\n");
+		if (print)
+			ft_printf("ra\n");
 		return (1);
 	}
 	return (0);
@@ -27,35 +28,39 @@ int	ra(t_stack **a)
 
 // rb (rotate b): Shift up all elements of stack b by 1.
 // The first element becomes the last one.
-int	rb(t_stack **b)
+int	rb(t_stack **b, int print)
 {
 	*b = (*b)->next;
-	ft_printf("rb\n");
+	if (print)
+		ft_printf("rb\n");
 	return (1);
 }
 
 // rra (reverse rotate a): Shift down all elements of stack a by 1.
 // The last element becomes the first one.
-int	rra(t_stack **a)
+int	rra(t_stack **a, int print)
 {
 	*a = (*a)->prev;
-	ft_printf("rra\n");
+	if (print)
+		ft_printf("rra\n");
 	return (1);
 }
 
 // rrb (reverse rotate b): Shift down all elements of stack b by 1.
 // The last element becomes the first one.
-int	rrb(t_stack **b)
+int	rrb(t_stack **b, int print)
 {
 	ft_printf("rrb\n");
-	*b = (*b)->prev;
+	if (print)
+		*b = (*b)->prev;
 	return (1);
 }
 
-int	rrr(t_stack **a, t_stack **b)
+int	rrr(t_stack **a, t_stack **b, int print)
 {
 	*a = (*a)->prev;
 	*b = (*b)->prev;
-	ft_printf("rrr\n");
+	if (print)
+		ft_printf("rrr\n");
 	return (1);
 }

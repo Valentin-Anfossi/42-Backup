@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 23:38:58 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/12/07 01:59:23 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/08 03:59:23 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	sa(t_stack **a, int print)
 	t_stack	*tmp;
 	t_stack	*tmp_2;
 
-	if (*a == NULL || (*a)->next == NULL)
+	if (*a == NULL || (*a)->next == *a)
 		return (0);
 	tmp = *a;
 	tmp_2 = tmp->next;
@@ -42,7 +42,7 @@ int	sb(t_stack **b, int print)
 	t_stack	*tmp;
 	t_stack	*tmp_2;
 
-	if (*b == NULL || (*b)->next == NULL)
+	if (*b == NULL || (*b)->next == *b)
 		return (0);
 	tmp = *b;
 	tmp_2 = tmp->next;
@@ -59,11 +59,12 @@ int	sb(t_stack **b, int print)
 }
 
 // ss : sa and sb at the same time.
-int	ss(t_stack **a, t_stack **b)
+int	ss(t_stack **a, t_stack **b, int print)
 {
 	if (sa(a, 0) && sb(b, 0))
 	{
-		ft_printf("ss\n");
+		if (print)
+			ft_printf("ss\n");
 		return (1);
 	}
 	return (0);
@@ -71,7 +72,7 @@ int	ss(t_stack **a, t_stack **b)
 
 // pa (push a)
 // Do nothing if b is empty.
-int	pa(t_stack **a, t_stack **b)
+int	pa(t_stack **a, t_stack **b, int print)
 {
 	t_stack	*tmp_b;
 
@@ -89,7 +90,8 @@ int	pa(t_stack **a, t_stack **b)
 		(*b)->prev->next = *b;
 	}
 	pa_helper(a, tmp_b);
-	ft_printf("pa\n");
+	if (print)
+		ft_printf("pa\n");
 	return (1);
 }
 

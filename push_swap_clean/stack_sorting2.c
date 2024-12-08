@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 04:30:30 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/12/06 23:54:42 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/08 03:06:22 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,19 @@ int	sort_do_moves(t_stack **a, t_stack **b, t_stack *cheapest)
 
 	cost_a = cheapest->cost_a;
 	cost_b = cheapest->cost_b;
-	while (cost_a > 0 && cost_b > 0 && (rr(a, b), cost_a--, cost_b--))
+	while (cost_a > 0 && cost_b > 0 && (rr(a, b, 1), cost_a--, cost_b--))
 		;
-	while (cost_a < 0 && cost_b < 0 && (rrr(a, b), cost_a++, cost_b++))
+	while (cost_a < 0 && cost_b < 0 && (rrr(a, b, 1), cost_a++, cost_b++))
 		;
-	while (cost_a > 0 && (ra(a), cost_a--))
+	while (cost_a > 0 && (ra(a, 1), cost_a--))
 		;
-	while (cost_a < 0 && (rra(a), cost_a++))
+	while (cost_a < 0 && (rra(a, 1), cost_a++))
 		;
-	while (cost_b > 0 && (rb(b), cost_b--))
+	while (cost_b > 0 && (rb(b, 1), cost_b--))
 		;
-	while (cost_b < 0 && (rrb(b), cost_b++))
+	while (cost_b < 0 && (rrb(b, 1), cost_b++))
 		;
-	return (pa(a, b));
+	return (pa(a, b, 1));
 }
 
 //OPTIMIZE BY RECALC COST IF RR OR RRR ARE TO BE USED
@@ -88,14 +88,14 @@ void	sort_final_sort(t_stack **a)
 	{
 		while (*a != stack_find_min(a))
 		{
-			ra(a);
+			ra(a, 1);
 		}
 	}
 	else
 	{
 		while (*a != stack_find_min(a))
 		{
-			rra(a);
+			rra(a, 1);
 		}
 	}
 }

@@ -6,7 +6,7 @@
 #    By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/07 02:27:42 by vanfossi          #+#    #+#              #
-#    Updated: 2024/12/07 02:43:49 by vanfossi         ###   ########.fr        #
+#    Updated: 2024/12/07 17:34:45 by vanfossi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,16 @@ BONUSNM = checker
 
 LIBFT 	= ./libft/libft.a
 
+MAIN 	= push_swap.c
+
 SOURCES	= args_utils.c array_utils.c debug_utils.c misc_utils.c print_error.c \
-		  push_swap.c stack_functions.c stack_functions2.c stack_functions3.c \
+		  stack_functions.c stack_functions2.c stack_functions3.c \
 		  stack_sorting.c stack_sorting2.c stack_sorting3.c stack_utils.c \
 		  stack_utils2.c
 
-BONUSSRCS = 
+BONUSSRCS = ./checker_srcs/checker_main.c
+
+MOFILE = $(MAIN:.c=.o)
 
 OFILES	= $(SOURCES:.c=.o)
 
@@ -33,21 +37,26 @@ FLAGS	= -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(OFILES)
-	 $(CC) $(FLAGS) -o $(NAME) $(OFILES) $(LIBFT) 
+$(NAME): $(MOFILE) $(OFILES)
+	 $(CC) $(FLAGS) -o $(NAME) $(MOFILE) $(OFILES) $(LIBFT) 
 
-bonus : $(BONUSOFILES)
-	$(CC) $(FLAGS) -o $(BONUSNM) $(BONUSOFILES) $(LIBFT)
+bonus : $(OFILES) $(BONUSOFILES)
+	$(CC) $(FLAGS) -o $(BONUSNM) $(OFILES) $(BONUSOFILES) $(LIBFT)
 
 #Compile .o < .c seulement si changes
 %.o: %.c
 	$(CC) $(FLAGS) -c $< -o $@
 
+./checker_srcs/%.o: ./checker_srcs/%.c
+	$(CC) $(FLAGS) -c $< -o $@
+
 clean:
 	rm -f $(OFILES)
+	rm -f $(MOFILE)
 	rm -f $(BONUSOFILES)
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f $(BONUSNM)
 
 re: fclean all

@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 07:44:30 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/12/07 04:17:09 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/08 03:21:15 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,4 @@ int	main(int argc, char **argv)
 	free(arg_array);
 	free_stack(&a);
 	free_stack(&b);
-}
-
-void	free_stack(t_stack **stack)
-{
-	t_stack	*tmp;
-	t_stack	*next;
-
-	if (!stack || !*stack)
-		return ;
-	tmp = *stack;
-	tmp -> prev -> next = NULL;
-	while (tmp)
-	{
-		next = tmp->next;
-		free(tmp);
-		tmp = next;
-	}
-	*stack = NULL;
 }
