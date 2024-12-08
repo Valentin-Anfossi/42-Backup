@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 01:03:23 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/12/08 03:03:41 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/08 14:32:54 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	pb(t_stack **a, t_stack **b, int print)
 	t_stack	*tmp_a;
 
 	if (*a == NULL)
-		return (0);
+		return (1);
 	tmp_a = *a;
 	if ((*a)->next == *a)
 		*a = NULL;

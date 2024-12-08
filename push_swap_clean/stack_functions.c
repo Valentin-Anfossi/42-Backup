@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 23:38:58 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/12/08 03:59:23 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/08 14:32:48 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	sa(t_stack **a, int print)
 	t_stack	*tmp_2;
 
 	if (*a == NULL || (*a)->next == *a)
-		return (0);
+		return (1);
 	tmp = *a;
 	tmp_2 = tmp->next;
 	*a = tmp_2;
@@ -43,7 +43,7 @@ int	sb(t_stack **b, int print)
 	t_stack	*tmp_2;
 
 	if (*b == NULL || (*b)->next == *b)
-		return (0);
+		return (1);
 	tmp = *b;
 	tmp_2 = tmp->next;
 	*b = tmp_2;
@@ -77,7 +77,7 @@ int	pa(t_stack **a, t_stack **b, int print)
 	t_stack	*tmp_b;
 
 	if (*b == NULL)
-		return (0);
+		return (1);
 	tmp_b = *b;
 	if ((*b)->next == *b)
 		*b = NULL;

@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 17:17:51 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/12/08 04:13:08 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/08 14:30:50 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ int	read_input(t_stack **a, t_stack **b)
 			return (1);
 		if (stack_is_sorted(a))
 			return (0);
-		clear_buffer(buffer);
 	}
+	free (buffer);
 }
 
 int	main(int argc, char **argv)

@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 01:04:05 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/12/08 03:04:43 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/08 14:35:46 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,28 @@ int	ra(t_stack **a, int print)
 // The first element becomes the last one.
 int	rb(t_stack **b, int print)
 {
-	*b = (*b)->next;
-	if (print)
-		ft_printf("rb\n");
-	return (1);
+	if (*b != NULL)
+	{
+		*b = (*b)->next;
+		if (print)
+			ft_printf("rb\n");
+		return (1);
+	}
+	return (0);
 }
 
 // rra (reverse rotate a): Shift down all elements of stack a by 1.
 // The last element becomes the first one.
 int	rra(t_stack **a, int print)
 {
-	*a = (*a)->prev;
-	if (print)
-		ft_printf("rra\n");
-	return (1);
+	if (*a != NULL)
+	{
+		*a = (*a)->prev;
+		if (print)
+			ft_printf("rra\n");
+		return (1);
+	}
+	return (0);
 }
 
 // rrb (reverse rotate b): Shift down all elements of stack b by 1.
