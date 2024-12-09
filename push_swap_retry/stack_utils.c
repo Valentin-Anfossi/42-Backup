@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 17:03:04 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/12/06 23:54:51 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/09 01:56:03 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_stack	*stack_build(int *arg_array, int argc)
 	stack = NULL;
 	new = NULL;
 	i = 0;
-	while (i < argc - 1)
+	while (i < argc)
 	{
 		new = stack_create_element(arg_array[i]);
 		stack_add_to_bot(&new, &stack);

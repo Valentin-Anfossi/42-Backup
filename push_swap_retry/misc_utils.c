@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 18:48:49 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/12/07 17:35:34 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/09 02:06:08 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,15 @@ void	free_stack(t_stack **stack)
 		tmp = next;
 	}
 	*stack = NULL;
+}
+
+int	free_all(t_stack **a, t_stack **b, int **array)
+{
+	if(a)
+		free_stack(a);
+	if(b)
+		free_stack(b);
+	if(array)
+		free(*array);
+	return (0);
 }

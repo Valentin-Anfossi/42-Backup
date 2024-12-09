@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 07:45:02 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/12/08 03:16:47 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/09 02:04:29 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int			args_check_duplicates(int *a, int argc);
 int			args_check(int argc, char **argv);
 int			args_check_digits(char **argv, int i);
 long int	ft_atoi_pushswap(const char *str);
+char		**args_check_args(int argc, char **argv);
 
 //SORTING FUNCTIONS
 int			main_sort(t_stack **a, t_stack **b);
@@ -91,3 +92,4 @@ int			rrr(t_stack **a, t_stack **b, int print);
 //MISC_UTILS.c
 int			ft_abs(int i);
 void		free_stack(t_stack **stack);
+int			free_all(t_stack **a, t_stack **b, int **array);

@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:20:49 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/12/07 02:36:37 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/09 01:41:00 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,20 @@ int	*process_args(int argc, char **argv)
 	int	i;
 	int	*args;
 
-	i = 1;
+	i = 0;
 	if (args_check(argc, argv))
 	{
-		args = malloc(sizeof(int) * argc - 1);
+		args = malloc(sizeof(int) * argc);
 		while (i < argc)
 		{
-			args[i - 1] = ft_atoi_pushswap(argv[i]);
+			args[i] = ft_atoi_pushswap(argv[i]);
 			i++;
 		}
 	}
 	else
+	{
 		return (NULL);
+	}
 	return (args);
 }
 
@@ -41,8 +43,8 @@ int	args_check(int argc, char **argv)
 	long int	n;
 	int			*a;
 
-	i = 1;
-	a = malloc(sizeof(int) * argc - 1);
+	i = 0;
+	a = malloc(sizeof(int) * argc);
 	while (i < argc)
 	{
 		if (!args_check_digits(argv, i))
@@ -50,7 +52,7 @@ int	args_check(int argc, char **argv)
 		n = ft_atoi_pushswap(argv[i]);
 		if (n > INT_MAX || n < INT_MIN)
 			return (0);
-		a[i - 1] = n;
+		a[i] = n;
 		i++;
 	}
 	return (args_check_duplicates(a, argc));
@@ -88,9 +90,9 @@ int	args_check_duplicates(int *a, int argc)
 	i = 0;
 	j = 0;
 	count = 0;
-	while (i < argc - 1)
+	while (i < argc)
 	{
-		while (j < argc - 1)
+		while (j < argc)
 		{
 			if (a[j] == a[i])
 				count++;
