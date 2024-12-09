@@ -6,7 +6,7 @@
 /*   By: vanfossi <vanfossi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 15:21:15 by vanfossi          #+#    #+#             */
-/*   Updated: 2024/12/08 15:30:40 by vanfossi         ###   ########.fr       */
+/*   Updated: 2024/12/08 19:01:16 by vanfossi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,3 +19,4 @@ int	main(void)
 	pid = getpid();
 	printf("%d",pid);
 }
+
